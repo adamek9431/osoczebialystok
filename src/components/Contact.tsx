@@ -35,9 +35,9 @@ export function Contact() {
                 
                 <div className="space-y-6">
                   {[
-                    { icon: Phone, label: 'Telefon', content: <a href="tel:+48723574156" className="text-black hover:text-[#D4AF37] transition-colors">+48 723574156</a> },
+                    { icon: Phone, label: 'Telefon', content: <a href="tel:+48723574156" className="text-black hover:text-[#D4AF37] transition-colors">+48 723 574 156</a> },
                     { icon: Mail, label: 'Email', content: <a href="mailto:july.pmu@gmail.com" className="text-black hover:text-[#D4AF37] transition-colors break-all">july.pmu@gmail.com</a> },
-                    { icon: MapPin, label: 'Adres', content: <a href="https://www.google.com/maps/search/?api=1&query=ul.+Wyszyńskiego+2%2F1,+lok.+301,+15-888+Białystok" target="_blank" rel="noopener noreferrer" className="text-black hover:text-[#D4AF37] transition-colors cursor-pointer">ul. Wyszńskiego 2/1, lok. 301 <br />15-888 Białystok</a> },
+                    { icon: MapPin, label: 'Adres', content: <a href="https://www.google.com/maps/search/?api=1&query=ul.+Wyszyńskiego+2%2F1,+lok.+301,+15-888+Białystok" target="_blank" rel="noopener noreferrer" className="text-black hover:text-[#D4AF37] transition-colors cursor-pointer">ul. Wyszyńskiego 2/1, lok. 301 <br />15-888 Białystok</a> },
                     { icon: Clock, label: 'Godziny pracy', content: <p className="text-black text-sm">Pon - Pt: 6:00 - 20:00<br /></p> }
                   ].map((item, idx) => (
                     <motion.div 
@@ -74,7 +74,7 @@ export function Contact() {
                 
                 <div className="grid sm:grid-cols-2 gap-6 mb-8">
                   {[
-                    ['Studenta 3ciego roku pielęgniarstwa', 'Wieloletnie doświadczenie', 'Indywidualne podejście'],
+                    ['Studentka 3ciego roku pielęgniarstwa', 'Wieloletnie doświadczenie', 'Indywidualne podejście'],
                     ['Najwyższe standardy bezpieczeństwa', 'Nowoczesny sprzęt', 'Kompleksowa opieka']
                   ].map((column, colIdx) => (
                     <div key={colIdx} className="space-y-4">

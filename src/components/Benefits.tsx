@@ -53,7 +53,7 @@ export function Benefits() {
           </p>
         </motion.div>
         
-        <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto bg-[rgba(0,0,0,0)]">
           {benefits.map((benefit, index) => {
             const Icon = benefit.icon;
             return (

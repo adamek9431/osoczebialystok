@@ -9,7 +9,7 @@ export function TreatmentInfo() {
     {
       title: 'Osocze bogatopłytkowe',
       subtitle: 'PRP - Platelet Rich Plasma',
-      description: 'Zabieg polega na wykorzystaniu osocza pobranego z Twojej własnej krwi, wzbogaconego w płytki krwi i czynniki wzrostu.',
+      description: 'Zabieg polega na wykorzystaniu osocza pobranego z Twojej własnej krwi, bogatego w płytki krwi i czynniki wzrostu.',
       features: [
         'Poprawa struktury i elastyczności skóry',
         'Redukcja drobnych zmarszczek i linii',
@@ -28,7 +28,7 @@ export function TreatmentInfo() {
     },
     {
       title: 'Full Face Natural®',
-      subtitle: 'Plasma Filer - wypełniacz autologiczny',
+      subtitle: 'Plasma Filler - wypełniacz autologiczny ATR',
       description: 'Opatentowany zabieg autologicznej wolumetrii twarzy łączący albuminowo-płytkową regenerację dla maksymalnego, ale naturalnego efektu nadbudowy i odmłodzenia skóry twarzy.',
       features: [
         'Dodanie objętości bez nadmiernego obciążenia tkanek',

@@ -246,6 +246,15 @@ section h2 {
 }
 
 /* Decorative badges at section transitions should be BELOW headings */
-section > div[class*="absolute"] {
+/* BUT background effects should stay at z-index 0 or 1 */
+section > div[class*="absolute"][class*="bottom"],
+section > div[class*="absolute"][class*="translate-y"] {
   z-index: 20 !important;
+}
+
+/* Content containers should be above background effects */
+section > div[class*="container"],
+section > div > div[class*="container"] {
+  position: relative;
+  z-index: 10;
 }

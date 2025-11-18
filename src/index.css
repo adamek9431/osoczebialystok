@@ -1184,6 +1184,10 @@
     background-color: oklab(76.6528% -.00256398 .138653 / .2);
   }
 
+  .bg-\[rgba\(0\,0\,0\,0\)\] {
+    background-color: #0000;
+  }
+
   .bg-black {
     background-color: var(--color-black);
   }
@@ -2344,8 +2348,13 @@ section h2 {
   z-index: 30 !important;
 }
 
-section > div[class*="absolute"] {
+section > div[class*="absolute"][class*="bottom"], section > div[class*="absolute"][class*="translate-y"] {
   z-index: 20 !important;
+}
+
+section > div[class*="container"], section > div > div[class*="container"] {
+  z-index: 10;
+  position: relative;
 }
 
 @property --tw-translate-x {
