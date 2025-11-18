@@ -27,7 +27,7 @@ export function Benefits() {
   ];
 
   return (
-    <section id="korzyści" className="pt-20 pb-32 bg-gradient-to-br from-[#F5F5DC] to-white relative overflow-visible" itemScope itemType="https://schema.org/ItemList" aria-label="Korzyści zabiegów osoczem bogatopłytkowym PRP PRF Białystok">
+    <section id="korzyści" className="pt-20 pb-32 bg-gradient-to-br from-[#F5F5DC] to-white relative overflow-hidden" itemScope itemType="https://schema.org/ItemList" aria-label="Korzyści zabiegów osoczem bogatopłytkowym PRP PRF Białystok">
       {/* Efekt złotego dymku w tle - zwiększona intensywność */}
       <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-[#D4AF37]/5 to-transparent pointer-events-none"></div>
       <div className="absolute top-1/4 left-1/4 w-[800px] h-[800px] bg-gradient-to-br from-[#D4AF37]/35 via-[#F4C542]/25 to-transparent rounded-full blur-[150px] opacity-70 pointer-events-none"></div>

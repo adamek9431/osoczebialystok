@@ -6,7 +6,7 @@ import { motion } from 'motion/react';
 
 export function Hero() {
   return (
-    <section className="relative min-h-[90vh] bg-white pt-20 pb-32 overflow-visible" itemScope itemType="https://schema.org/Service">
+    <section className="relative min-h-[90vh] bg-white pt-20 pb-32 overflow-hidden" itemScope itemType="https://schema.org/Service">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 h-full">
         <div className="grid lg:grid-cols-2 gap-12 items-center min-h-[90vh] py-12">
           {/* Lewa strona - Tekst */}

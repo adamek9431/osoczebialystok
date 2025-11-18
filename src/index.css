@@ -1089,10 +1089,6 @@
     overflow: hidden;
   }
 
-  .overflow-visible {
-    overflow: visible;
-  }
-
   .rounded-2xl {
     border-radius: var(--radius-2xl);
   }
@@ -2302,6 +2298,22 @@
 
 html {
   font-size: var(--font-size);
+  width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  width: 100%;
+  position: relative;
+  overflow-x: hidden;
+}
+
+* {
+  max-width: 100%;
+}
+
+section, div, header, footer {
+  box-sizing: border-box;
 }
 
 @property --tw-translate-x {

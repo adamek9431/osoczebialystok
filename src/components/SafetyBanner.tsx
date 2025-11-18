@@ -6,7 +6,7 @@ export function SafetyBanner() {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
-    <section className="pt-16 pb-32 bg-white relative overflow-visible">
+    <section className="pt-16 pb-32 bg-white relative overflow-hidden">
       {/* Złote dymki w tle sekcji - responsywne */}
       <div className="absolute top-0 right-0 w-[250px] h-[250px] sm:w-[350px] sm:h-[350px] md:w-96 md:h-96 bg-gradient-to-br from-[#D4AF37]/30 via-[#F4C542]/20 to-transparent rounded-full blur-[80px] sm:blur-[100px] md:blur-3xl opacity-70"></div>
       <div className="absolute bottom-0 left-0 w-[250px] h-[250px] sm:w-[350px] sm:h-[350px] md:w-96 md:h-96 bg-gradient-to-tr from-[#F4C542]/30 via-[#D4AF37]/20 to-transparent rounded-full blur-[80px] sm:blur-[100px] md:blur-3xl opacity-70"></div>

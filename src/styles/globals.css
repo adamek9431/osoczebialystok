@@ -202,4 +202,25 @@
 
 html {
   font-size: var(--font-size);
+  width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  width: 100%;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Prevent horizontal scroll on mobile */
+* {
+  max-width: 100%;
+}
+
+/* Ensure all sections respect viewport width */
+section,
+div,
+header,
+footer {
+  box-sizing: border-box;
 }
