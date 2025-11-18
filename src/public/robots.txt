@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://TWOJA-DOMENA.pl/sitemap.xml
+
+# Zabiegi osoczem bogatopłytkowym PRP PRF Białystok
+# Julia Więckowska - medycyna estetyczna
