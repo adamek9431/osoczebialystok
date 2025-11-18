@@ -41,7 +41,7 @@
 ### 2. Google Search Console
 - [ ] Dodaj domenę do Google Search Console
 - [ ] Zweryfikuj własność (DNS lub HTML file)
-- [ ] Prześlij sitemap: `https://osoczebialystok.pl/sitemap.xml`
+- [ ] Prześlij sitemap: `https://twoja-domena.pl/sitemap.xml`
 - [ ] Sprawdź czy sitemap jest poprawnie odczytany
 
 ### 3. Google My Business
