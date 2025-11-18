@@ -39,7 +39,7 @@ export function TreatmentInfo() {
   ];
 
   return (
-    <section id="zabiegi" className="pt-40 pb-32 bg-black relative overflow-hidden" itemScope itemType="https://schema.org/OfferCatalog" aria-label="Zabiegi osoczem bogatopłytkowym PRP PRF fibryna Białystok">
+    <section id="zabiegi" className="pt-40 pb-32 bg-black relative overflow-visible" itemScope itemType="https://schema.org/OfferCatalog" aria-label="Zabiegi osoczem bogatopłytkowym PRP PRF fibryna Białystok">
       {/* Efekt złotego dymku w tle */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-gradient-to-br from-[#D4AF37]/30 via-[#F4C542]/20 to-transparent rounded-full blur-[120px] opacity-60 pointer-events-none"></div>
       <div className="absolute top-1/4 right-1/4 w-[400px] h-[400px] bg-gradient-to-br from-[#D4AF37]/20 to-transparent rounded-full blur-[100px] opacity-40 pointer-events-none"></div>

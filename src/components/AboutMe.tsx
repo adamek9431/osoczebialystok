@@ -20,7 +20,7 @@ export function AboutMe() {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
-    <section id="o-mnie" className="pt-40 pb-32 bg-gradient-to-br from-[#F5F5DC] to-white relative overflow-hidden" itemScope itemType="https://schema.org/Person" aria-label="O mnie - Julia Więckowska kosmetolog pielęgniarka Białystok">
+    <section id="o-mnie" className="pt-40 pb-32 bg-gradient-to-br from-[#F5F5DC] to-white relative overflow-visible" itemScope itemType="https://schema.org/Person" aria-label="O mnie - Julia Więckowska kosmetolog pielęgniarka Białystok">
       <div ref={ref} className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">

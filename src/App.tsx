@@ -169,7 +169,7 @@ export default function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white" itemScope itemType="https://schema.org/MedicalBusiness">
+    <div className="min-h-screen w-full bg-white overflow-x-hidden" itemScope itemType="https://schema.org/MedicalBusiness">
       <Header />
       <Hero />
       <Benefits />
@@ -197,7 +197,7 @@ export default function App() {
                 Profesjonalne zabiegi z fibryną i osoczem Białystok
               </p>
               <p className="text-xs text-[#E8DCC4]/50 mt-2">
-                Osocze bogatopłytkowe PRP | Fibryna PRF | Wampirzy lifting | Full Face Natural® 
+                Osocze bogatopłytkowe PRP | Fibryna PRF | Mezoterapia | Full Face Natural® 
               </p>
             </div>
             

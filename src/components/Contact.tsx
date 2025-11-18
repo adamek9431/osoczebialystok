@@ -6,7 +6,7 @@ export function Contact() {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
-    <section id="kontakt" className="pt-20 pb-24 bg-white overflow-hidden" itemScope itemType="https://schema.org/ContactPage">
+    <section id="kontakt" className="pt-20 pb-24 bg-white overflow-visible" itemScope itemType="https://schema.org/ContactPage">
       <div ref={ref} className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
           <motion.div 
@@ -74,7 +74,7 @@ export function Contact() {
                 
                 <div className="grid sm:grid-cols-2 gap-6 mb-8">
                   {[
-                    ['Studentka 3ciego roku pielęgniarstwa', 'Wieloletnie doświadczenie', 'Indywidualne podejście'],
+                    ['Studenta 3ciego roku pielęgniarstwa', 'Wieloletnie doświadczenie', 'Indywidualne podejście'],
                     ['Najwyższe standardy bezpieczeństwa', 'Nowoczesny sprzęt', 'Kompleksowa opieka']
                   ].map((column, colIdx) => (
                     <div key={colIdx} className="space-y-4">

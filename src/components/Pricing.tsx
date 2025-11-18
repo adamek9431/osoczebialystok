@@ -53,7 +53,7 @@ export function Pricing() {
   ];
 
   return (
-    <section id="cennik" className="pt-20 pb-32 bg-gradient-to-br from-[#F5F5DC] to-white relative overflow-hidden" itemScope itemType="https://schema.org/PriceSpecification" aria-label="Cennik zabiegów PRP PRF osocze fibryna Białystok">
+    <section id="cennik" className="pt-20 pb-32 bg-gradient-to-br from-[#F5F5DC] to-white relative overflow-visible" itemScope itemType="https://schema.org/PriceSpecification" aria-label="Cennik zabiegów PRP PRF osocze fibryna Białystok">
       <div ref={ref} className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
