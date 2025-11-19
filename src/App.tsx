@@ -26,7 +26,7 @@ export default function App() {
     
     const metaDescription = document.querySelector('meta[name="description"]') || document.createElement('meta');
     metaDescription.setAttribute('name', 'description');
-    metaDescription.setAttribute('content', 'Profesjonalne zabiegi osoczem bogatopłytkowym w Białymstoku. PRP, PRF, fibryna bogatopłytkowa, wampirzy lifting, Full Face Natural®. Odmładzanie i regeneracja skóry. Umów konsultację!');
+    metaDescription.setAttribute('content', 'Naturalne zabiegi z wykorzystaniem fibryny i osocza bogatopłytkowego. Odkryj moc regeneracji Twojego organizmu.');
     if (!document.querySelector('meta[name="description"]')) {
       document.head.appendChild(metaDescription);
     }
@@ -48,7 +48,7 @@ export default function App() {
 
     const ogDescription = document.querySelector('meta[property="og:description"]') || document.createElement('meta');
     ogDescription.setAttribute('property', 'og:description');
-    ogDescription.setAttribute('content', 'Zabiegi z osoczem bogatopłytkowym PRP, PRF i fibryną w Białymstoku. Wampirzy lifting, Full Face Natural®, mezoterapia. Naturalna regeneracja i odmładzanie skóry.');
+    ogDescription.setAttribute('content', 'Naturalne zabiegi z wykorzystaniem fibryny i osocza bogatopłytkowego. Odkryj moc regeneracji Twojego organizmu.');
     if (!document.querySelector('meta[property="og:description"]')) {
       document.head.appendChild(ogDescription);
     }
@@ -174,6 +174,15 @@ export default function App() {
 
     // Language
     document.documentElement.setAttribute('lang', 'pl');
+
+    // Favicon
+    const favicon = document.querySelector('link[rel="icon"]') || document.createElement('link');
+    favicon.setAttribute('rel', 'icon');
+    favicon.setAttribute('type', 'image/png');
+    favicon.setAttribute('href', image_69a78009bcf5defe568d019540af7b45a93d3ce3);
+    if (!document.querySelector('link[rel="icon"]')) {
+      document.head.appendChild(favicon);
+    }
 
     // Cloudflare Web Analytics
     const cfAnalytics = document.querySelector('script[data-cf-beacon]');
