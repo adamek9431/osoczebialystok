@@ -179,7 +179,7 @@ export default function App() {
     const favicon = document.querySelector('link[rel="icon"]') || document.createElement('link');
     favicon.setAttribute('rel', 'icon');
     favicon.setAttribute('type', 'image/png');
-    favicon.setAttribute('href', image_69a78009bcf5defe568d019540af7b45a93d3ce3);
+    favicon.setAttribute('href', image_25909a0558481bbf84b9fdcc4c4b411887b1789a);
     if (!document.querySelector('link[rel="icon"]')) {
       document.head.appendChild(favicon);
     }
