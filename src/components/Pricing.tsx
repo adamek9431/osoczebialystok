@@ -83,7 +83,7 @@ export function Pricing() {
               >
                 <div className="flex items-center justify-center gap-3 mb-6">
                   {treatment.icon && (
-                    <div className="flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-br from-[#D4AF37]/20 to-[#F4C542]/10 border border-[#D4AF37]/20">
+                    <div className="flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-br from-[#D4AF37]/20 to-[#F4C542]/10 border border-[#D4AF37]/20 shrink-0">
                       <treatment.icon className="w-6 h-6 text-[#D4AF37]" />
                     </div>
                   )}
@@ -207,7 +207,7 @@ export function Pricing() {
           >
             <p className="text-[#666666] text-sm">
               Pierwsza konsultacja jest bezpłatna i niezobowiązująca. <br/>
-              Podczas spotkania omówimy Twoje potrzeby i dobramy optymalny plan zabiegów.
+              Podczas spotkania omówimy Twoje potrzeby i dobierzemy optymalny plan zabiegów.
             </p>
           </motion.div>
         </div>

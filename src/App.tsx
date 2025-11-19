@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import image_69a78009bcf5defe568d019540af7b45a93d3ce3 from 'figma:asset/69a78009bcf5defe568d019540af7b45a93d3ce3.png';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
@@ -9,10 +10,17 @@ import { Pricing } from './components/Pricing';
 import { Contact } from './components/Contact';
 import image_25909a0558481bbf84b9fdcc4c4b411887b1789a from 'figma:asset/25909a0558481bbf84b9fdcc4c4b411887b1789a.png';
 import footerLogo from 'figma:asset/c78c567efd605d58cc8d9c4973aa56d075f0257e.png';
-import { useEffect } from 'react';
 
 export default function App() {
+  const [visitCount, setVisitCount] = useState(0);
+
   useEffect(() => {
+    // Visit counter
+    const currentCount = parseInt(localStorage.getItem('visitCount') || '0', 10);
+    const newCount = currentCount + 1;
+    localStorage.setItem('visitCount', newCount.toString());
+    setVisitCount(newCount);
+
     // SEO Meta Tags
     document.title = 'Osocze Bogatopłytkowe Białystok | PRP, PRF, Full Face Natural® - Julia Więckowska';
     
@@ -166,6 +174,16 @@ export default function App() {
 
     // Language
     document.documentElement.setAttribute('lang', 'pl');
+
+    // Cloudflare Web Analytics
+    const cfAnalytics = document.querySelector('script[data-cf-beacon]');
+    if (!cfAnalytics) {
+      const script = document.createElement('script');
+      script.defer = true;
+      script.src = 'https://static.cloudflareinsights.com/beacon.min.js';
+      script.setAttribute('data-cf-beacon', '{"token": "4216dceba1c94768be53297350b785cc"}');
+      document.body.appendChild(script);
+    }
   }, []);
 
   return (
@@ -207,6 +225,9 @@ export default function App() {
               </p>
               <p className="text-xs text-[#E8DCC4]/50">
                 Białystok, Województwo Podlaskie
+              </p>
+              <p className="text-xs text-black select-text" title="Licznik odwiedzin">
+                Visits: {visitCount}
               </p>
             </div>
           </div>
