@@ -56,6 +56,7 @@ export function Hero() {
               <a 
                 href="#kontakt" 
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-[#D4AF37] to-[#F4C542] text-black rounded-full hover:shadow-xl hover:shadow-[#D4AF37]/30 transition-all group"
+                aria-label="Umów bezpłatną konsultację zabiegów PRP PRF w Białymstoku"
               >
                 Umów bezpłatną konsultację
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -64,6 +65,7 @@ export function Hero() {
               <a 
                 href="#zabiegi" 
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-black text-white rounded-full hover:bg-[#1a1a1a] transition-all"
+                aria-label="Zobacz zabiegi z osocza i fibryny dostępne w Białymstoku"
               >
                 Poznaj zabiegi
               </a>
@@ -77,7 +79,7 @@ export function Hero() {
               transition={{ duration: 0.6, delay: 0.8 }}
             >
               <div>
-                <div className="text-3xl md:text-4xl text-[#D4AF37] mb-1">6+</div>
+                <div className="text-3xl md:text-4xl text-[#D4AF37] mb-1">7+</div>
                 <div className="text-sm text-[#666666]">Lat w Branży Beauty</div>
               </div>
               <div>
@@ -85,7 +87,7 @@ export function Hero() {
                 <div className="text-sm text-[#666666]">Naturalne składniki</div>
               </div>
               <div>
-                <div className="text-3xl md:text-4xl text-[#D4AF37] mb-1"> 82%</div>
+                <div className="text-3xl md:text-4xl text-[#D4AF37] mb-1">82%</div>
                 <div className="text-sm text-[#666666]">Odzysku płytek wg. klasyfikacji DEPA</div>
               </div>
             </motion.div>
@@ -99,11 +101,11 @@ export function Hero() {
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
           >
             {/* Dekoracyjne tło */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gradient-to-br from-[#D4AF37]/20 to-[#F4C542]/10 rounded-full blur-3xl"></div>
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gradient-to-br from-[#D4AF37]/20 to-[#F4C542]/10 rounded-full blur-3xl" aria-hidden="true"></div>
             
             {/* Główne zdjęcie */}
             <div className="relative max-w-lg w-full">
-              <div className="absolute -inset-4 bg-gradient-to-br from-[#D4AF37] to-[#F4C542] rounded-[3rem] opacity-20 blur-xl"></div>
+              <div className="absolute -inset-4 bg-gradient-to-br from-[#D4AF37] to-[#F4C542] rounded-[3rem] opacity-20 blur-xl" aria-hidden="true"></div>
               
               <div className="relative rounded-[3rem] overflow-hidden shadow-2xl border-4 border-white">
                 <ImageWithFallback 
@@ -115,8 +117,9 @@ export function Hero() {
                 {/* Gradient overlay */}
                 <ImageWithFallback 
                   src={overlayImage}
-                  alt="Zabiegi regeneracyjne skóry PRP fibryna Białystok"
+                  alt=""
                   className="absolute inset-0 w-full h-full object-cover"
+                  aria-hidden="true"
                 />
               </div>
               
@@ -141,6 +144,7 @@ export function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6, delay: 1.2 }}
+        aria-hidden="true"
       >
         <div className="w-6 h-10 border-2 border-[#D4AF37]/30 rounded-full flex items-start justify-center p-2">
           <div className="w-1 h-3 bg-[#D4AF37] rounded-full"></div>

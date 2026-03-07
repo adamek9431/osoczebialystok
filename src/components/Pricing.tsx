@@ -1,4 +1,4 @@
-import { Check, Droplets, Flame, Sparkles, Award } from 'lucide-react';
+import { Check, Droplets, Flame, Sparkles, Award, Zap, Syringe } from 'lucide-react';
 import { motion } from 'motion/react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
@@ -44,6 +44,21 @@ export function Pricing() {
         { area: 'Full Face Natural®', price: '1500 zł' },
       ],
       description: 'Opatentowany zabieg autologicznej wolumetrii twarzy łączący najlepsze cechy frakcji albuminowej i frakcji płytkowej dla maksymalnego, ale naturalnego efektu nadbudowy, odmłodzenia i regeneracji skóry twarzy. Kompleksowe podejście zapewniające naturalne i długotrwałe rezultaty.'
+    },
+    {
+      name: 'Autologiczne Egzosomy',
+      icon: Zap,
+      areas: [
+        { area: 'Twarz, szyja, dekolt', price: '2000 zł' },
+        { area: 'Skóra głowy', price: '2000 zł' },
+      ]
+    },
+    {
+      name: 'Mezoterapia mikroigłowa',
+      icon: Syringe,
+      areas: [
+        { area: 'Ampułka dobrana do potrzeb skóry', price: '400 zł' },
+      ]
     }
   ];
 
@@ -188,12 +203,22 @@ export function Pricing() {
                 <p className="text-[#E8DCC4]/70 text-sm mb-4">
                   * Szczegółowe informacje o pakietach podczas konsultacji
                 </p>
-                <a 
-                  href="#kontakt" 
-                  className="inline-block px-8 py-4 bg-gradient-to-r from-[#D4AF37] to-[#F4C542] text-black rounded-full hover:shadow-xl hover:shadow-[#D4AF37]/30 transition-all"
-                >
-                  Umów się na konsultację
-                </a>
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                  <a 
+                    href="#kontakt" 
+                    className="inline-block px-8 py-4 bg-gradient-to-r from-[#D4AF37] to-[#F4C542] text-black rounded-full hover:shadow-xl hover:shadow-[#D4AF37]/30 transition-all"
+                  >
+                    Umów się na wizytę
+                  </a>
+                  <a 
+                    href="https://docs.google.com/forms/d/e/1FAIpQLSfzuX0vPUGsXl66WQ3xXRjdQdupXqDJmCnJcXHBQN3ufiTblQ/viewform"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block px-8 py-4 bg-gradient-to-r from-[#D4AF37] to-[#F4C542] text-black rounded-full hover:shadow-xl hover:shadow-[#D4AF37]/30 transition-all"
+                  >
+                    Zapisz się na konsultację
+                  </a>
+                </div>
               </motion.div>
             </div>
           </motion.div>
@@ -206,6 +231,7 @@ export function Pricing() {
             transition={{ duration: 0.6, delay: 1 }}
           >
             <p className="text-[#666666] text-sm">
+              Masz wątpliwości, który zabieg jest dla Ciebie najlepszy? <br/>
               Pierwsza konsultacja jest bezpłatna i niezobowiązująca. <br/>
               Podczas spotkania omówimy Twoje potrzeby i dobierzemy optymalny plan zabiegów.
             </p>

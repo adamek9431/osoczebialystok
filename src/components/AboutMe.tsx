@@ -15,9 +15,73 @@ import { ImageWithFallback } from './figma/ImageWithFallback';
 import { Award, GraduationCap, Heart, Users } from 'lucide-react';
 import { motion } from 'motion/react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import { useEffect } from 'react';
 
 export function AboutMe() {
   const { ref, isVisible } = useScrollAnimation();
+
+  useEffect(() => {
+    // Add Person Schema (JSON-LD)
+    const existingSchema = document.querySelector('script[type=\"application/ld+json\"][data-schema-id=\"person-schema\"]');
+    
+    if (!existingSchema) {
+      const schema = {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Julia Więckowska",
+        "jobTitle": "Kosmetolog z wykształceniem pielęgniarskim",
+        "description": "Studentka 3ciego roku pielęgniarstwa z wieloletnim doświadczeniem w zabiegach regeneracyjnych z wykorzystaniem fibryny i osocza bogatopłytkowego.",
+        "url": "https://osoczebialystok.pl",
+        "sameAs": [
+          "https://booksy.com/pl-pl/284841_july-julia-wieckowska-beauty-salon-bialystok_medycyna-estetyczna_5869_bialystok/"
+        ],
+        "alumniOf": {
+          "@type": "EducationalOrganization",
+          "name": "Kierunek: Pielęgniarstwo"
+        },
+        "hasCredential": [
+          {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "Certyfikat",
+            "name": "Zabiegi autologiczne z wykorzystaniem osocza i fibryny"
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "Certyfikat",
+            "name": "Full Face Natural®"
+          }
+        ],
+        "knowsAbout": [
+          "Zabiegi z osoczem bogatopłytkowym (PRP)",
+          "Zabiegi z fibryną (PRF)",
+          "Full Face Natural®",
+          "Naturalne zabiegi regeneracyjne",
+          "Mezoterapia osoczem"
+        ],
+        "award": "6+ lat doświadczenia w branży beauty",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Białystok",
+          "addressRegion": "Podlaskie",
+          "addressCountry": "PL"
+        }
+      };
+
+      const script = document.createElement('script');
+      script.type = 'application/ld+json';
+      script.setAttribute('data-schema-id', 'person-schema');
+      script.text = JSON.stringify(schema);
+      document.head.appendChild(script);
+
+      return () => {
+        // Cleanup on unmount
+        const schemaToRemove = document.querySelector('script[data-schema-id=\"person-schema\"]');
+        if (schemaToRemove) {
+          schemaToRemove.remove();
+        }
+      };
+    }
+  }, []);
 
   return (
     <section id="o-mnie" className="pt-40 pb-32 bg-gradient-to-br from-[#F5F5DC] to-white relative overflow-visible" itemScope itemType="https://schema.org/Person" aria-label="O mnie - Julia Więckowska kosmetolog pielęgniarka Białystok">
