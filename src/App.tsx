@@ -1,247 +1,46 @@
-import { useEffect, useState } from 'react';
-import image_69a78009bcf5defe568d019540af7b45a93d3ce3 from 'figma:asset/69a78009bcf5defe568d019540af7b45a93d3ce3.png';
-import { Header } from './components/Header';
-import { Hero } from './components/Hero';
-import { Benefits } from './components/Benefits';
-import { SafetyBanner } from './components/SafetyBanner';
-import { TreatmentInfo } from './components/TreatmentInfo';
-import { AboutMe } from './components/AboutMe';
-import { Pricing } from './components/Pricing';
-import { Contact } from './components/Contact';
-import image_25909a0558481bbf84b9fdcc4c4b411887b1789a from 'figma:asset/25909a0558481bbf84b9fdcc4c4b411887b1789a.png';
-import footerLogo from 'figma:asset/c78c567efd605d58cc8d9c4973aa56d075f0257e.png';
+import { lazy, Suspense } from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router';
+import { Layout } from './components/Layout';
+import { ScrollToTop } from './components/ScrollToTop';
+import { HomePage } from './pages/HomePage';
+
+// Lazy load treatment pages for better performance
+const PRPPage = lazy(() => import('./pages/PRPPage').then(m => ({ default: m.PRPPage })));
+const PRFPage = lazy(() => import('./pages/PRFPage').then(m => ({ default: m.PRFPage })));
+const FullFaceNaturalPage = lazy(() => import('./pages/FullFaceNaturalPage').then(m => ({ default: m.FullFaceNaturalPage })));
+const ScalpPRPPage = lazy(() => import('./pages/ScalpPRPPage').then(m => ({ default: m.ScalpPRPPage })));
+const ExosomesPage = lazy(() => import('./pages/ExosomesPage').then(m => ({ default: m.ExosomesPage })));
+const MicroneedlingPage = lazy(() => import('./pages/MicroneedlingPage').then(m => ({ default: m.MicroneedlingPage })));
+
+// Loading fallback component
+function PageLoader() {
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-white">
+      <div className="flex flex-col items-center gap-4">
+        <div className="w-16 h-16 border-4 border-[#D4AF37] border-t-transparent rounded-full animate-spin" />
+        <p className="text-[#666666]">Ładowanie...</p>
+      </div>
+    </div>
+  );
+}
 
 export default function App() {
-  const [visitCount, setVisitCount] = useState(0);
-
-  useEffect(() => {
-    // Visit counter
-    const currentCount = parseInt(localStorage.getItem('visitCount') || '0', 10);
-    const newCount = currentCount + 1;
-    localStorage.setItem('visitCount', newCount.toString());
-    setVisitCount(newCount);
-
-    // SEO Meta Tags
-    document.title = 'Osocze Bogatopłytkowe Białystok | PRP, PRF, Full Face Natural® - Julia Więckowska';
-
-    const metaDescription = document.querySelector('meta[name="description"]') || document.createElement('meta');
-    metaDescription.setAttribute('name', 'description');
-    metaDescription.setAttribute('content', 'Naturalne zabiegi z wykorzystaniem fibryny i osocza bogatopłytkowego. Odkryj moc regeneracji Twojego organizmu.');
-    if (!document.querySelector('meta[name="description"]')) {
-      document.head.appendChild(metaDescription);
-    }
-
-    const metaKeywords = document.querySelector('meta[name="keywords"]') || document.createElement('meta');
-    metaKeywords.setAttribute('name', 'keywords');
-    metaKeywords.setAttribute('content', 'osocze bogatopłytkowe Białystok, osocze bialystok ,ostrzykiwanie osoczem Białystok, PRP Białystok zabieg, wampirzy lifting Białystok, fibryna bogatopłytkowa Białystok, fibryna pod oczy Białystok, zabiegi anti-aging Białystok, odmładzanie osoczem Białystok, regeneracja skóry PRP Białystok, medycyna estetyczna osocze Białystok, Full Face zabieg, mezoterapia skóry głowy, PRF Białystok, zabiegi autologiczne Białystok');
-    if (!document.querySelector('meta[name="keywords"]')) {
-      document.head.appendChild(metaKeywords);
-    }
-
-    // Open Graph Tags
-    const ogTitle = document.querySelector('meta[property="og:title"]') || document.createElement('meta');
-    ogTitle.setAttribute('property', 'og:title');
-    ogTitle.setAttribute('content', 'Osocze Bogatopłytkowe PRP Białystok | Julia Więckowska');
-    if (!document.querySelector('meta[property="og:title"]')) {
-      document.head.appendChild(ogTitle);
-    }
-
-    const ogDescription = document.querySelector('meta[property="og:description"]') || document.createElement('meta');
-    ogDescription.setAttribute('property', 'og:description');
-    ogDescription.setAttribute('content', 'Naturalne zabiegi z wykorzystaniem fibryny i osocza bogatopłytkowego. Odkryj moc regeneracji Twojego organizmu.');
-    if (!document.querySelector('meta[property="og:description"]')) {
-      document.head.appendChild(ogDescription);
-    }
-
-    const ogType = document.querySelector('meta[property="og:type"]') || document.createElement('meta');
-    ogType.setAttribute('property', 'og:type');
-    ogType.setAttribute('content', 'website');
-    if (!document.querySelector('meta[property="og:type"]')) {
-      document.head.appendChild(ogType);
-    }
-
-    const ogLocale = document.querySelector('meta[property="og:locale"]') || document.createElement('meta');
-    ogLocale.setAttribute('property', 'og:locale');
-    ogLocale.setAttribute('content', 'pl_PL');
-    if (!document.querySelector('meta[property="og:locale"]')) {
-      document.head.appendChild(ogLocale);
-    }
-
-    // JSON-LD Structured Data
-    const structuredData = {
-      "@context": "https://schema.org",
-      "@type": "MedicalBusiness",
-      "name": "Julia Więckowska - Zabiegi z Osoczem i Fibryną",
-      "description": "Profesjonalne zabiegi z wykorzystaniem osocza bogatopłytkowego PRP, PRF i fibryny bogatopłytkowej w Białymstoku. Wampirzy lifting, Full Face Natural®, zabiegi anti-aging.",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Białystok",
-        "addressRegion": "Podlaskie",
-        "addressCountry": "PL"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": "53.1325",
-        "longitude": "23.1688"
-      },
-      "medicalSpecialty": "Dermatology",
-      "priceRange": "$$",
-      "areaServed": {
-        "@type": "City",
-        "name": "Białystok"
-      },
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Zabiegi fibryną i osoczem bogatopłytkowym",
-        "itemListElement": [
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Survey",
-              "name": "Osocze bogatopłytkowe PRP Białystok",
-              "description": "Zabieg z wykorzystaniem osocza bogatopłytkowego (PRP) dla regeneracji i odmładzania skóry"
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "MedicalProcedure",
-              "name": "Fibryna bogatopłytkowa PRF Białystok",
-              "description": "Zabieg z fibryną strukturalną PRF dla długotrwałej regeneracji skóry"
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Survey",
-              "name": "Full Face Natural® - wypełniacz autologiczny",
-              "description": "Opatentowany zabieg wolumetrii twarzy z wykorzystaniem własnego osocza"
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Survey",
-              "name": "Wampirzy lifting Białystok",
-              "description": "Odmładzający zabieg osoczem bogatopłytkowym dla całej twarzy"
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Survey",
-              "name": "Fibryna pod oczy Białystok",
-              "description": "Zabieg z fibryną pod oczy dla redukcji cieni i regeneracji delikatnej skóry"
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Survey",
-              "name": "Mezoterapia skóry głowy PRP",
-              "description": "Zabieg osoczem bogatopłytkowym dla wzmocnienia włosów i skóry głowy"
-            }
-          }
-        ]
-      },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "5",
-        "reviewCount": "47"
-      },
-      "employee": {
-        "@type": "Person",
-        "name": "Julia Więckowska",
-        "jobTitle": "Kosmetolog, Pielęgniarka",
-        "description": "Wykwalifikowana kosmetyczka z wykształceniem pielęgniarskim, specjalistka zabiegów PRP, PRF i fibryny bogatopłytkowej"
-      }
-    };
-
-    const scriptTag = document.querySelector('script[type="application/ld+json"]') || document.createElement('script');
-    scriptTag.setAttribute('type', 'application/ld+json');
-    scriptTag.textContent = JSON.stringify(structuredData);
-    if (!document.querySelector('script[type="application/ld+json"]')) {
-      document.head.appendChild(scriptTag);
-    }
-
-    // Canonical URL
-    const canonical = document.querySelector('link[rel="canonical"]') || document.createElement('link');
-    canonical.setAttribute('rel', 'canonical');
-    canonical.setAttribute('href', window.location.href.split('?')[0]);
-    if (!document.querySelector('link[rel="canonical"]')) {
-      document.head.appendChild(canonical);
-    }
-
-    // Language
-    document.documentElement.setAttribute('lang', 'pl');
-
-    // Favicon
-    const favicon = document.querySelector('link[rel="icon"]') || document.createElement('link');
-    favicon.setAttribute('rel', 'icon');
-    favicon.setAttribute('type', 'image/png');
-    favicon.setAttribute('href', image_25909a0558481bbf84b9fdcc4c4b411887b1789a);
-    if (!document.querySelector('link[rel="icon"]')) {
-      document.head.appendChild(favicon);
-    }
-
-    // Cloudflare Web Analytics
-    const cfAnalytics = document.querySelector('script[data-cf-beacon]');
-    if (!cfAnalytics) {
-      const script = document.createElement('script');
-      script.defer = true;
-      script.src = 'https://static.cloudflareinsights.com/beacon.min.js';
-      script.setAttribute('data-cf-beacon', '{"token": "4216dceba1c94768be53297350b785cc"}');
-      document.body.appendChild(script);
-    }
-  }, []);
-
   return (
-    <div className="min-h-screen w-full bg-white overflow-x-hidden" itemScope itemType="https://schema.org/MedicalBusiness">
-      <Header />
-      <Hero />
-      <Benefits />
-      <TreatmentInfo />
-      <AboutMe />
-      <SafetyBanner />
-      <Pricing />
-      <Contact />
-
-      <footer className="bg-black text-[#E8DCC4] py-12 border-t border-[#D4AF37]/20" itemScope itemType="https://schema.org/WPFooter">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-            <div className="text-center md:text-left">
-              <div className="flex items-center gap-2 justify-center md:justify-start mb-2">
-                <div className="w-12 h-12 bg-gradient-to-br from-[#D4AF37] to-[#F4C542] rounded-full overflow-hidden">
-                  <img
-                    src={image_69a78009bcf5defe568d019540af7b45a93d3ce3}
-                    alt="Julia Więckowska - osocze bogatopłytkowe PRP PRF Białystok logo"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <span className="text-[#D4AF37] font-[Cinzel]" itemProp="name">Julia Więckowska</span>
-              </div>
-              <p className="text-sm text-[#E8DCC4]/70" itemProp="description">
-                Profesjonalne zabiegi z fibryną i osoczem Białystok
-              </p>
-              <p className="text-xs text-[#E8DCC4]/50 mt-2">
-                Osocze bogatopłytkowe PRP | Fibryna PRF | Mezoterapia | Full Face Natural® |
-              </p>
-            </div>
-
-            <div className="text-center md:text-right">
-              <p className="text-sm text-[#E8DCC4]/70 mb-1">
-                © 2025 Wszystkie prawa zastrzeżone
-              </p>
-              <p className="text-xs text-[#E8DCC4]/50">
-                Białystok, Województwo Podlaskie
-              </p>
-              <p className="text-xs text-black select-text" title="Licznik odwiedzin">
-                Visits: {visitCount}
-              </p>
-            </div>
-          </div>
-        </div>
-      </footer>
-    </div>
+    <Router>
+      <ScrollToTop />
+      <Suspense fallback={<PageLoader />}>
+        <Routes>
+          <Route path="/" element={<Layout><HomePage /></Layout>} />
+          <Route path="/osocze-bogatoplytkowe-prp-bialystok" element={<Layout><PRPPage /></Layout>} />
+          <Route path="/fibryna-bogatoplytkowa-prf-bialystok" element={<Layout><PRFPage /></Layout>} />
+          <Route path="/full-face-natural-bialystok" element={<Layout><FullFaceNaturalPage /></Layout>} />
+          <Route path="/osocze-na-skore-glowy-bialystok" element={<Layout><ScalpPRPPage /></Layout>} />
+          <Route path="/autologiczne-egzosomy-bialystok" element={<Layout><ExosomesPage /></Layout>} />
+          <Route path="/mezoterapia-mikroiglowa-bialystok" element={<Layout><MicroneedlingPage /></Layout>} />
+          {/* Catch-all route - redirect to home */}
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+      </Suspense>
+    </Router>
   );
 }
