@@ -15,7 +15,7 @@ export function SafetyBanner() {
       <div ref={ref} className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="max-w-5xl mx-auto">
           <motion.div 
-            className="bg-black rounded-3xl p-6 md:p-12 border border-[#D4AF37]/30 shadow-2xl relative overflow-hidden"
+            className="bg-gradient-to-br from-[#1a1a1a] to-[#0a0a0a] rounded-3xl p-6 md:p-12 border border-[#D4AF37]/30 shadow-2xl relative overflow-hidden"
             initial={{ opacity: 0, y: 50 }}
             animate={isVisible ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8 }}

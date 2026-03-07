@@ -1,7 +1,7 @@
-import { Check } from 'lucide-react';
+import { Calendar, Clock, Shield, User, Check } from 'lucide-react';
 import { motion } from 'motion/react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 
 export function TreatmentInfo() {
   const { ref, isVisible } = useScrollAnimation();

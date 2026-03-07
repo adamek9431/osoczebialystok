@@ -64,7 +64,7 @@ export function Hero() {
               
               <a 
                 href="#zabiegi" 
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-black text-white rounded-full hover:bg-[#1a1a1a] transition-all"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-[#D4AF37] to-[#F4C542] text-black rounded-full hover:shadow-lg hover:shadow-[#D4AF37]/30 transition-all"
                 aria-label="Zobacz zabiegi z osocza i fibryny dostępne w Białymstoku"
               >
                 Poznaj zabiegi

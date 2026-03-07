@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef, useCallback, useMemo } from 'react';
 import { Menu, X, ChevronDown } from 'lucide-react';
-import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router';
 import image_25909a0558481bbf84b9fdcc4c4b411887b1789a from 'figma:asset/25909a0558481bbf84b9fdcc4c4b411887b1789a.png';
 
 export function Header() {
@@ -84,7 +84,7 @@ export function Header() {
                 className="w-full h-full object-cover"
               />
             </div>
-            <span className="text-black" style={{ fontFamily: 'var(--font-cinzel)' }}>Julia Więckowska</span>
+            <span className="text-[#000000]" style={{ fontFamily: 'var(--font-cinzel)' }}>Julia Więckowska</span>
           </Link>
           
           {/* Desktop Navigation */}
@@ -182,7 +182,7 @@ export function Header() {
         
         {/* Mobile Dropdown Menu */}
         {isMenuOpen && (
-          <div className="xl:hidden py-4 border-t border-[#D4AF37]/10">
+          <div className="xl:hidden py-4 border-t border-[#D4AF37]/20">
             <nav className="flex flex-col">
               <a 
                 href="/#korzyści" 
@@ -212,7 +212,7 @@ export function Header() {
                 </button>
                 
                 {isDropdownOpen && (
-                  <div className="bg-[#F9F7F4] py-3 mt-2 mx-4 rounded-lg">
+                  <div className="bg-[#F5F5DC] py-3 mt-2 mx-4 rounded-lg border border-[#D4AF37]/10">
                     {treatments.map((treatment, index) => (
                       <Link
                         key={index}

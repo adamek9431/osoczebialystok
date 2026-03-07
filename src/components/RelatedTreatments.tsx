@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 import { ArrowRight, Droplet, Sparkles, Zap, Heart, Atom, Grid3x3 } from 'lucide-react';
 import { motion } from 'motion/react';
 

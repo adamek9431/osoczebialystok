@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { ArrowLeft, CheckCircle2, Sparkles, Crown, AlertTriangle } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 import { motion } from 'motion/react';
 import { Breadcrumbs } from '../components/Breadcrumbs';
 import { RelatedTreatments } from '../components/RelatedTreatments';

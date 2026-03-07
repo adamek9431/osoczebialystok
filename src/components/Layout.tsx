@@ -1,5 +1,5 @@
 import { ReactNode, useEffect, memo } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router';
 import { Header } from './Header';
 import { SocialSidebar } from './SocialSidebar';
 import image_69a78009bcf5defe568d019540af7b45a93d3ce3 from 'figma:asset/69a78009bcf5defe568d019540af7b45a93d3ce3.png';

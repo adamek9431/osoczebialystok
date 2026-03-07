@@ -1332,6 +1332,10 @@
     background-color: oklab(76.6528% -.00256398 .138653 / .2);
   }
 
+  .bg-\[\#F5F5DC\] {
+    background-color: beige;
+  }
+
   .bg-\[\#F9F7F4\] {
     background-color: #f9f7f4;
   }
@@ -1830,6 +1834,10 @@
     white-space: pre-line;
   }
 
+  .text-\[\#000000\] {
+    color: #000;
+  }
+
   .text-\[\#666666\] {
     color: #666;
   }
@@ -2141,12 +2149,6 @@
   @media (hover: hover) {
     .hover\:border-\[\#D4AF37\]\/50:hover {
       border-color: oklab(76.6528% -.00256398 .138653 / .5);
-    }
-  }
-
-  @media (hover: hover) {
-    .hover\:bg-\[\#1a1a1a\]:hover {
-      background-color: #1a1a1a;
     }
   }
 
@@ -2769,9 +2771,9 @@
   --sidebar-foreground: beige;
   --sidebar-primary: #d4af37;
   --sidebar-primary-foreground: #000;
-  --sidebar-accent: #2a2a2a;
-  --sidebar-accent-foreground: #d4af37;
-  --sidebar-border: #3a3a3a;
+  --sidebar-accent: #d4af37;
+  --sidebar-accent-foreground: #000;
+  --sidebar-border: #d4af37;
   --sidebar-ring: #d4af37;
 }
 
