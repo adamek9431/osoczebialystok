@@ -56,6 +56,9 @@ export function Benefits() {
         <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {benefits.map((benefit, index) => {
             const Icon = benefit.icon;
+            const iconGradient = "from-[#D4AF37] to-[#F4C542]";
+            const iconColor = "text-black";
+            
             return (
               <motion.div 
                 key={index}
@@ -73,8 +76,8 @@ export function Benefits() {
                 <div className="relative space-y-4 z-10">
                   {/* Wiersz 1: Ikona + Nagłówek */}
                   <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 md:w-16 md:h-16 bg-gradient-to-br from-[#D4AF37] to-[#F4C542] rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform shadow-lg">
-                      <Icon className="w-6 h-6 md:w-8 md:h-8 text-black" />
+                    <div className={`w-12 h-12 md:w-16 md:h-16 bg-gradient-to-br ${iconGradient} rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform shadow-lg`}>
+                      <Icon className={`w-6 h-6 md:w-8 md:h-8 ${iconColor}`} />
                     </div>
                     <h3 className="text-black" itemProp="name">{benefit.title}</h3>
                   </div>
@@ -116,8 +119,8 @@ export function Benefits() {
       
       {/* Container na styku sekcji */}
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 z-20">
-        <div className="px-6 py-3 bg-[#1a1a1a] rounded-full border border-[#D4AF37]/20 shadow-2xl text-center">
-          <span className="text-[#D4AF37]">Autologiczne rozwiązania</span>
+        <div className="px-6 py-3 bg-gradient-to-r from-[#D4AF37] to-[#F4C542] rounded-full border border-[#D4AF37]/20 shadow-2xl text-center">
+          <span className="text-black">Autologiczne rozwiązania</span>
         </div>
       </div>
     </section>
