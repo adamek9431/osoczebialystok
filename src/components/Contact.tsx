@@ -58,22 +58,6 @@ export function Contact() {
                   ))}
                 </div>
               </div>
-              
-              {/* Przycisk zapisu na konsultacje */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={isVisible ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 0.6 }}
-              >
-                <a 
-                  href="https://docs.google.com/forms/d/e/1FAIpQLSfzuX0vPUGsXl66WQ3xXRjdQdupXqDJmCnJcXHBQN3ufiTblQ/viewform"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block w-full px-8 py-4 bg-gradient-to-r from-[#D4AF37] to-[#F4C542] text-black rounded-full hover:shadow-xl hover:shadow-[#D4AF37]/30 transition-all text-center font-semibold"
-                >
-                  Zapis na konsultację
-                </a>
-              </motion.div>
             </motion.div>
             
             {/* Why choose us - 3 columns */}

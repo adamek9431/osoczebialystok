@@ -1,7 +1,6 @@
 import { Check } from 'lucide-react';
 import { motion } from 'motion/react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
-import { Link } from 'react-router-dom';
 
 export function TreatmentInfo() {
   const { ref, isVisible } = useScrollAnimation();
@@ -15,19 +14,17 @@ export function TreatmentInfo() {
         'Poprawa struktury i elastyczności skóry',
         'Redukcja drobnych zmarszczek i linii',
         'Wyrównanie kolorytu skóry'
-      ],
-      path: '/osocze-bogatoplytkowe-prp-bialystok'
+      ]
     },
     {
-      title: 'Fibryna strukturalna/\nbogatokomórkowa',
+      title: 'Fibryna strukturalna/bogatokomórkowa',
       subtitle: 'PRF - Platelet Rich Fibrin',
       description: 'Zaawansowana forma osocza, która uwalnia czynniki wzrostu przez dłuższy czas. Fibryna tworzy naturalną matrycę wspierającą procesy regeneracyjne.',
       features: [
         'Długotrwały efekt regeneracyjny',
         'Poprawa gęstości i nawilżenia skóry',
         'Wsparcie leczenia blizn i rozstępów'
-      ],
-      path: '/fibryna-bogatoplytkowa-prf-bialystok'
+      ]
     },
     {
       title: 'Full Face Natural®',
@@ -37,19 +34,7 @@ export function TreatmentInfo() {
         'Dodanie objętości bez nadmiernego obciążenia tkanek',
         'Kompleksowa stymulacja skóry',
         'Naturalne i trwałe rezultaty'
-      ],
-      path: '/full-face-natural-bialystok'
-    },
-    {
-      title: 'Autologiczne Egzosomy',
-      subtitle: 'EXO - Exosome Therapy',
-      description: 'Nowoczesna technologia wykorzystująca naturalne nanocząsteczki pochodzące z Twojej własnej krwi, które przekazują sygnały regeneracyjne między komórkami.',
-      features: [
-        'Intensywna stymulacja odnowy komórkowej',
-        'Zwiększenie produkcji kolagenu i elastyny',
-        'Regeneracja skóry na poziomie molekularnym'
-      ],
-      path: '/autologiczne-egzosomy-bialystok'
+      ]
     }
   ];
 
@@ -76,10 +61,11 @@ export function TreatmentInfo() {
           </p>
         </motion.div>
         
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+        <div className="grid md:grid-cols-3 gap-6 max-w-7xl mx-auto">
           {treatments.map((treatment, idx) => (
             <motion.div 
               key={idx}
+              className="relative bg-gradient-to-br from-[#1a1a1a] to-[#0a0a0a] rounded-3xl p-8 border border-[#D4AF37]/20 hover:border-[#D4AF37]/40 transition-all duration-300"
               initial={{ opacity: 0, y: 50 }}
               animate={isVisible ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: idx * 0.2 }}
@@ -87,41 +73,28 @@ export function TreatmentInfo() {
               itemType="https://schema.org/Offer"
               itemProp="itemListElement"
             >
-              <Link 
-                to={treatment.path}
-                className="relative block bg-gradient-to-br from-[#1a1a1a] to-[#0a0a0a] rounded-3xl p-8 border border-[#D4AF37]/20 hover:border-[#D4AF37]/40 transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-[#D4AF37]/20 group"
-              >
-                {/* Tytuł */}
-                <div className="mb-4" itemProp="itemOffered" itemScope itemType="https://schema.org/MedicalProcedure">
-                  <h3 className="text-[#D4AF37] mb-1 group-hover:text-[#F4C542] transition-colors whitespace-pre-line" itemProp="name">{treatment.title}</h3>
-                  <p className="text-[#E8DCC4]/60 text-sm" itemProp="alternateName">{treatment.subtitle}</p>
-                
-                {/* Opis */}
-                <p className="text-[#E8DCC4]/80 text-sm leading-relaxed mb-6 mt-4" itemProp="description">
-                  {treatment.description}
-                </p>
-                </div>
-                
-                {/* Lista korzyści */}
-                <ul className="space-y-3 mb-4">
-                  {treatment.features.map((feature, featureIdx) => (
-                    <li key={featureIdx} className="flex items-start gap-3">
-                      <div className="mt-0.5">
-                        <Check className="w-4 h-4 text-[#D4AF37]" />
-                      </div>
-                      <span className="text-[#E8DCC4] text-sm">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                {/* Wskaźnik "Dowiedz się więcej" */}
-                <div className="flex items-center gap-2 text-[#D4AF37] text-sm mt-6 group-hover:gap-3 transition-all">
-                  <span>Dowiedz się więcej</span>
-                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </div>
-              </Link>
+              {/* Tytuł */}
+              <div className="mb-4" itemProp="itemOffered" itemScope itemType="https://schema.org/MedicalProcedure">
+                <h3 className="text-[#D4AF37] mb-1" itemProp="name">{treatment.title}</h3>
+                <p className="text-[#E8DCC4]/60 text-sm" itemProp="alternateName">{treatment.subtitle}</p>
+              
+              {/* Opis */}
+              <p className="text-[#E8DCC4]/80 text-sm leading-relaxed mb-6 mt-4" itemProp="description">
+                {treatment.description}
+              </p>
+              </div>
+              
+              {/* Lista korzyści */}
+              <ul className="space-y-3">
+                {treatment.features.map((feature, featureIdx) => (
+                  <li key={featureIdx} className="flex items-start gap-3">
+                    <div className="mt-0.5">
+                      <Check className="w-4 h-4 text-[#D4AF37]" />
+                    </div>
+                    <span className="text-[#E8DCC4] text-sm">{feature}</span>
+                  </li>
+                ))}
+              </ul>
             </motion.div>
           ))}
         </div>

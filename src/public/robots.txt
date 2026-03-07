@@ -4,4 +4,4 @@ Allow: /
 Sitemap: https://osoczebialystok.pl/sitemap.xml
 
 # Zabiegi osoczem bogatopłytkowym PRP PRF Białystok
-# Julia Więckowska - medycyna estetyczna
+# Julia Więckowska - osocze bogatopłytkowe PRP PRF Białystok
