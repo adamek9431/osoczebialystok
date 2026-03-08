@@ -1,17 +1,4 @@
 import image_f309d6c726df3d5e5477d447cd69928ef5b1fee4 from 'figma:asset/f309d6c726df3d5e5477d447cd69928ef5b1fee4.png'
-import image_8cf892ae1493691c3a74683896550dd58b79f558 from 'figma:asset/8cf892ae1493691c3a74683896550dd58b79f558.png';
-import image_f833a53168ff7ecf811b28a84889261a89b86caa from 'figma:asset/f833a53168ff7ecf811b28a84889261a89b86caa.png';
-import image_8ff785aa312ce760f024425e32bc955fe9cc9c2b from 'figma:asset/8ff785aa312ce760f024425e32bc955fe9cc9c2b.png';
-import image_15615fdb464e7d87d0e7d07aea197eead69e9994 from 'figma:asset/15615fdb464e7d87d0e7d07aea197eead69e9994.png';
-import image_e6b42712dc5f170403b5193b9192f53282ea4fdb from 'figma:asset/e6b42712dc5f170403b5193b9192f53282ea4fdb.png';
-import image_96bdbf3bc2c84d60275039cc42d4920776f4be74 from 'figma:asset/96bdbf3bc2c84d60275039cc42d4920776f4be74.png';
-import image_6539c9bcd2c58d7cf7759a769a53bb0c5a999a45 from 'figma:asset/6539c9bcd2c58d7cf7759a769a53bb0c5a999a45.png';
-import image_fcb17f85cc2b6b37f742b008cc889a36839e9b36 from 'figma:asset/fcb17f85cc2b6b37f742b008cc889a36839e9b36.png';
-import image_02baeb380ded2b3e8a56bab83b25269b9ce51ca4 from 'figma:asset/02baeb380ded2b3e8a56bab83b25269b9ce51ca4.png';
-import image_6296498b0b8845cb12c1150a8ecbd036fce5603f from 'figma:asset/6296498b0b8845cb12c1150a8ecbd036fce5603f.png';
-import image_74bf7379cc312ff03d5f671cc163dcef451bfcbe from 'figma:asset/74bf7379cc312ff03d5f671cc163dcef451bfcbe.png';
-import image_bf55eb32ea9c38f52e991ce47eec83e8f7d0fb74 from 'figma:asset/bf55eb32ea9c38f52e991ce47eec83e8f7d0fb74.png';
-import image_78fb3ecf73bcfd03b947717ffabfcee1262372c0 from 'figma:asset/78fb3ecf73bcfd03b947717ffabfcee1262372c0.png';
 // Mobile optimized version
 import image_mobile from 'figma:asset/ca98c2401f2615200e000f662aaed2072c8c370d.png';
 import { ImageWithFallback } from './figma/ImageWithFallback';
@@ -96,7 +83,7 @@ export function AboutMe() {
               className="order-1 lg:hidden"
               initial={{ opacity: 0, y: 30 }}
               animate={isVisible ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.4 }}
             >
               <h2 className="mb-6 text-black text-center text-[28px] leading-tight">
                 Profesjonalna <span className="text-[#D4AF37]">opieka</span><br />na najwyższym poziomie
@@ -108,7 +95,7 @@ export function AboutMe() {
               className="order-2 lg:order-1 relative"
               initial={{ opacity: 0, x: -50 }}
               animate={isVisible ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 0.6 }}
             >
               <div className="relative max-w-lg mx-auto">
                 {/* Dekoracyjne tło */}
