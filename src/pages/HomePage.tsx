@@ -128,7 +128,8 @@ function setupJSONLD(config: typeof SEO_CONFIG) {
         }
       ],
       "sameAs": [
-        "https://www.instagram.com/july.juliawieckowska/",
+        "https://www.instagram.com/july.juliawieckowska",
+        "https://facebook.pl/julyjuliawieckowska",
         "https://booksy.com/pl-pl/284841_july-julia-wieckowska-beauty-salon-bialystok_medycyna-estetyczna_5869_bialystok/"
       ]
     },

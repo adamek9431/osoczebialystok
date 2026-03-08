@@ -1,14 +1,15 @@
 import image_f309d6c726df3d5e5477d447cd69928ef5b1fee4 from 'figma:asset/f309d6c726df3d5e5477d447cd69928ef5b1fee4.png'
-// Mobile optimized version
-import image_mobile from 'figma:asset/ca98c2401f2615200e000f662aaed2072c8c370d.png';
-import { ImageWithFallback } from './figma/ImageWithFallback';
+// Mobile optimized version - qualReduced
+import image_mobile from 'figma:asset/fa43fb5b4540d2967be793f0a3f832a9baef0be0.png';
 import { Award, GraduationCap, Heart, Users } from 'lucide-react';
 import { motion } from 'motion/react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { useEffect } from 'react';
+import { useIsMobile } from '../hooks/useMediaQuery';
 
 export function AboutMe() {
   const { ref, isVisible } = useScrollAnimation();
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     // Add Person Schema (JSON-LD)
@@ -81,9 +82,11 @@ export function AboutMe() {
             {/* Nagłówek na mobile */}
             <motion.div 
               className="order-1 lg:hidden"
-              initial={{ opacity: 0, y: 30 }}
-              animate={isVisible ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.4 }}
+              {...(isMobile ? {} : {
+                initial: { opacity: 0, y: 30 },
+                animate: isVisible ? { opacity: 1, y: 0 } : {},
+                transition: { duration: 0.4 }
+              })}
             >
               <h2 className="mb-6 text-black text-center text-[28px] leading-tight">
                 Profesjonalna <span className="text-[#D4AF37]">opieka</span><br />na najwyższym poziomie
@@ -93,9 +96,11 @@ export function AboutMe() {
             {/* Zdjęcie po lewej */}
             <motion.div 
               className="order-2 lg:order-1 relative"
-              initial={{ opacity: 0, x: -50 }}
-              animate={isVisible ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.6 }}
+              {...(isMobile ? {} : {
+                initial: { opacity: 0, x: -50 },
+                animate: isVisible ? { opacity: 1, x: 0 } : {},
+                transition: { duration: 0.6 }
+              })}
             >
               <div className="relative max-w-lg mx-auto">
                 {/* Dekoracyjne tło */}
@@ -107,38 +112,49 @@ export function AboutMe() {
                   <div className="relative rounded-3xl overflow-hidden shadow-2xl border-2 border-[#D4AF37]/30">
                     <picture>
                       <source media="(max-width: 768px)" srcSet={image_mobile} />
-                      <source media="(min-width: 769px)" srcSet={image_f309d6c726df3d5e5477d447cd69928ef5b1fee4} />
                       <img 
                         src={image_f309d6c726df3d5e5477d447cd69928ef5b1fee4}
                         alt="Profesjonalna pielęgniarka"
-                        className="w-full h-full object-cover aspect-[4/5]"
+                        className="w-full h-auto object-cover"
+                        style={{ aspectRatio: '4/5' }}
                         loading="lazy"
                       />
                     </picture>
                   </div>
                 </div>
                 
-                {/* Floating stats */}
-                <motion.div 
-                  className="absolute -bottom-6 -right-6 bg-black rounded-2xl p-6 shadow-xl border border-[#D4AF37]/30"
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={isVisible ? { opacity: 1, scale: 1 } : {}}
-                  transition={{ duration: 0.6, delay: 0.4 }}
-                >
-                  <div className="text-center">
-                    <div className="text-3xl text-[#D4AF37] mb-1">7+</div>
-                    <div className="text-[#E8DCC4] text-sm">Lat<br/>w Branży Beauty</div>
+                {/* Floating stats - simplified on mobile (no animation) */}
+                {isMobile ? (
+                  <div className="absolute -bottom-6 -right-6 bg-black rounded-2xl p-6 shadow-xl border border-[#D4AF37]/30">
+                    <div className="text-center">
+                      <div className="text-3xl text-[#D4AF37] mb-1">7+</div>
+                      <div className="text-[#E8DCC4] text-sm">Lat<br/>w Branży Beauty</div>
+                    </div>
                   </div>
-                </motion.div>
+                ) : (
+                  <motion.div 
+                    className="absolute -bottom-6 -right-6 bg-black rounded-2xl p-6 shadow-xl border border-[#D4AF37]/30"
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={isVisible ? { opacity: 1, scale: 1 } : {}}
+                    transition={{ duration: 0.6, delay: 0.4 }}
+                  >
+                    <div className="text-center">
+                      <div className="text-3xl text-[#D4AF37] mb-1">7+</div>
+                      <div className="text-[#E8DCC4] text-sm">Lat<br/>w Branży Beauty</div>
+                    </div>
+                  </motion.div>
+                )}
               </div>
             </motion.div>
             
             {/* Tekst po prawej */}
             <motion.div 
               className="order-3 lg:order-2"
-              initial={{ opacity: 0, x: 50 }}
-              animate={isVisible ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.8, delay: 0.2 }}
+              {...(isMobile ? {} : {
+                initial: { opacity: 0, x: 50 },
+                animate: isVisible ? { opacity: 1, x: 0 } : {},
+                transition: { duration: 0.8, delay: 0.2 }
+              })}
             >
               {/* Nagłówek na desktop */}
               <h2 className="mb-6 text-black hidden lg:block text-[32px]">
@@ -167,9 +183,11 @@ export function AboutMe() {
                   <motion.div 
                     key={idx}
                     className="flex items-start gap-3 p-4 bg-white rounded-2xl border border-[#D4AF37]/10 shadow-sm"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={isVisible ? { opacity: 1, y: 0 } : {}}
-                    transition={{ duration: 0.6, delay: item.delay }}
+                    {...(isMobile ? {} : {
+                      initial: { opacity: 0, y: 20 },
+                      animate: isVisible ? { opacity: 1, y: 0 } : {},
+                      transition: { duration: 0.6, delay: item.delay }
+                    })}
                   >
                     <div className="w-10 h-10 bg-gradient-to-br from-[#D4AF37] to-[#F4C542] rounded-xl flex items-center justify-center flex-shrink-0">
                       <item.icon className="w-5 h-5 text-black" />
@@ -184,9 +202,11 @@ export function AboutMe() {
               
               <motion.div 
                 className="text-center lg:text-left"
-                initial={{ opacity: 0, y: 20 }}
-                animate={isVisible ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 0.8 }}
+                {...(isMobile ? {} : {
+                  initial: { opacity: 0, y: 20 },
+                  animate: isVisible ? { opacity: 1, y: 0 } : {},
+                  transition: { duration: 0.6, delay: 0.8 }
+                })}
               >
                 <a 
                   href="#kontakt" 
