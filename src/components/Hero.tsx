@@ -4,6 +4,8 @@ import { ArrowRight } from 'lucide-react';
 import image_78fb3ecf73bcfd03b947717ffabfcee1262372c0 from 'figma:asset/78fb3ecf73bcfd03b947717ffabfcee1262372c0.png';
 import overlayImage from 'figma:asset/b0464d8bda8dcc5d011d5e9263cbbc561227a8c8.png';
 import { motion } from 'motion/react';
+// Mobile optimized version
+import image_mobile from 'figma:asset/6c956b8d3a1b81a01f5220cd0076431d0e228405.png';
 
 export function Hero() {
   return (
@@ -109,13 +111,17 @@ export function Hero() {
               <div className="absolute -inset-4 bg-gradient-to-br from-[#D4AF37] to-[#F4C542] rounded-[3rem] opacity-20 blur-xl" aria-hidden="true"></div>
               
               <div className="relative rounded-[3rem] overflow-hidden shadow-2xl border-4 border-white">
-                <ImageWithFallback 
-                  src={image_78fb3ecf73bcfd03b947717ffabfcee1262372c0}
-                  alt="Julia Więckowska - kosmetolog pielęgniarka, zabiegi osoczem bogatopłytkowym PRP PRF Białystok, wampirzy lifting, fibryna pod oczy"
-                  className="w-full h-full object-cover aspect-[3/4]"
-                  fetchpriority="high"
-                  decoding="async"
-                />
+                <picture>
+                  <source media="(max-width: 768px)" srcSet={image_mobile} />
+                  <source media="(min-width: 769px)" srcSet={image_78fb3ecf73bcfd03b947717ffabfcee1262372c0} />
+                  <img 
+                    src={image_78fb3ecf73bcfd03b947717ffabfcee1262372c0}
+                    alt="Julia Więckowska - kosmetolog pielęgniarka, zabiegi osoczem bogatopłytkowym PRP PRF Białystok, wampirzy lifting, fibryna pod oczy"
+                    className="w-full h-full object-cover aspect-[3/4]"
+                    fetchPriority="high"
+                    decoding="async"
+                  />
+                </picture>
                 
                 {/* Gradient overlay */}
                 <ImageWithFallback 

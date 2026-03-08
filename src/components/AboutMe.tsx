@@ -12,6 +12,8 @@ import image_6296498b0b8845cb12c1150a8ecbd036fce5603f from 'figma:asset/6296498b
 import image_74bf7379cc312ff03d5f671cc163dcef451bfcbe from 'figma:asset/74bf7379cc312ff03d5f671cc163dcef451bfcbe.png';
 import image_bf55eb32ea9c38f52e991ce47eec83e8f7d0fb74 from 'figma:asset/bf55eb32ea9c38f52e991ce47eec83e8f7d0fb74.png';
 import image_78fb3ecf73bcfd03b947717ffabfcee1262372c0 from 'figma:asset/78fb3ecf73bcfd03b947717ffabfcee1262372c0.png';
+// Mobile optimized version
+import image_mobile from 'figma:asset/ca98c2401f2615200e000f662aaed2072c8c370d.png';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import { Award, GraduationCap, Heart, Users } from 'lucide-react';
 import { motion } from 'motion/react';
@@ -116,12 +118,16 @@ export function AboutMe() {
                 <div className="relative">
                   <div className="absolute -inset-3 bg-gradient-to-br from-[#D4AF37] to-[#F4C542] rounded-3xl opacity-20"></div>
                   <div className="relative rounded-3xl overflow-hidden shadow-2xl border-2 border-[#D4AF37]/30">
-                    <ImageWithFallback 
-                      src={image_f309d6c726df3d5e5477d447cd69928ef5b1fee4}
-                      alt="Profesjonalna pielęgniarka"
-                      className="w-full h-full object-cover aspect-[4/5]"
-                      loading="lazy"
-                    />
+                    <picture>
+                      <source media="(max-width: 768px)" srcSet={image_mobile} />
+                      <source media="(min-width: 769px)" srcSet={image_f309d6c726df3d5e5477d447cd69928ef5b1fee4} />
+                      <img 
+                        src={image_f309d6c726df3d5e5477d447cd69928ef5b1fee4}
+                        alt="Profesjonalna pielęgniarka"
+                        className="w-full h-full object-cover aspect-[4/5]"
+                        loading="lazy"
+                      />
+                    </picture>
                   </div>
                 </div>
                 
@@ -133,7 +139,7 @@ export function AboutMe() {
                   transition={{ duration: 0.6, delay: 0.4 }}
                 >
                   <div className="text-center">
-                    <div className="text-3xl text-[#D4AF37] mb-1">6+</div>
+                    <div className="text-3xl text-[#D4AF37] mb-1">7+</div>
                     <div className="text-[#E8DCC4] text-sm">Lat<br/>w Branży Beauty</div>
                   </div>
                 </motion.div>
