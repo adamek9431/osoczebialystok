@@ -13,7 +13,7 @@ export function Pricing() {
         { area: 'Twarz', price: '600 zł' },
         { area: 'Twarz + szyja', price: '800 zł' },
         { area: 'Twarz + szyja + dekolt', price: '1000 zł' },
-        { area: 'Skóra głowy', price: '400 zł' },
+        { area: 'Skóra głowy', price: '500 zł' },
       ]
     },
     {
@@ -23,7 +23,7 @@ export function Pricing() {
         { area: 'Twarz', price: '600 zł' },
         { area: 'Twarz + szyja', price: '800 zł' },
         { area: 'Twarz + szyja + dekolt', price: '1000 zł' },
-        { area: 'Rewitalizacja ust', price: '400 zł' },
+        { area: 'Rewitalizacja ust', price: '500 zł' },
         { area: 'Okolica oczu', price: '400 zł' },
       ]
     },
@@ -31,9 +31,9 @@ export function Pricing() {
       name: 'Fibryna strukturalna+Osocze bogatopłytkowe (F-PRF+PRP LCC)', 
       icon: Sparkles,
       areas: [
-        { area: 'Twarz', price: '899 zł' },
-        { area: 'Twarz + szyja', price: '1099 zł' },
-        { area: 'Twarz + szyja + dekolt', price: '1299 zł' },
+        { area: 'Twarz', price: '900 zł' },
+        { area: 'Twarz + szyja', price: '1100 zł' },
+        { area: 'Twarz + szyja + dekolt', price: '1300 zł' },
       ]
     },
     {

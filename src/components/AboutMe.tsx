@@ -1,3 +1,4 @@
+import image_f309d6c726df3d5e5477d447cd69928ef5b1fee4 from 'figma:asset/f309d6c726df3d5e5477d447cd69928ef5b1fee4.png'
 import image_8cf892ae1493691c3a74683896550dd58b79f558 from 'figma:asset/8cf892ae1493691c3a74683896550dd58b79f558.png';
 import image_f833a53168ff7ecf811b28a84889261a89b86caa from 'figma:asset/f833a53168ff7ecf811b28a84889261a89b86caa.png';
 import image_8ff785aa312ce760f024425e32bc955fe9cc9c2b from 'figma:asset/8ff785aa312ce760f024425e32bc955fe9cc9c2b.png';
@@ -116,9 +117,10 @@ export function AboutMe() {
                   <div className="absolute -inset-3 bg-gradient-to-br from-[#D4AF37] to-[#F4C542] rounded-3xl opacity-20"></div>
                   <div className="relative rounded-3xl overflow-hidden shadow-2xl border-2 border-[#D4AF37]/30">
                     <ImageWithFallback 
-                      src={image_8cf892ae1493691c3a74683896550dd58b79f558}
+                      src={image_f309d6c726df3d5e5477d447cd69928ef5b1fee4}
                       alt="Profesjonalna pielęgniarka"
                       className="w-full h-full object-cover aspect-[4/5]"
+                      loading="lazy"
                     />
                   </div>
                 </div>

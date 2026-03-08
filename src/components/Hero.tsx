@@ -1,3 +1,4 @@
+import image_1bf0cc7df760e585fd0751e70b044ccd12fc071e from 'figma:asset/1bf0cc7df760e585fd0751e70b044ccd12fc071e.png'
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import { ArrowRight } from 'lucide-react';
 import image_78fb3ecf73bcfd03b947717ffabfcee1262372c0 from 'figma:asset/78fb3ecf73bcfd03b947717ffabfcee1262372c0.png';
@@ -14,13 +15,13 @@ export function Hero() {
             className="space-y-8 lg:pr-12"
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
           >
             <motion.h1 
               className="text-5xl md:text-6xl lg:text-7xl text-black leading-tight font-[Poppins]"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
+              transition={{ duration: 0.4, delay: 0.1 }}
               itemProp="name"
             >
               Regeneracja<br />
@@ -32,7 +33,7 @@ export function Hero() {
               className="text-lg md:text-xl text-[#666666] leading-relaxed max-w-xl"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
+              transition={{ duration: 0.4, delay: 0.2 }}
               itemProp="description"
             >
               Naturalne zabiegi z wykorzystaniem fibryny i osocza bogatopłytkowego. 
@@ -51,7 +52,7 @@ export function Hero() {
               className="flex flex-col sm:flex-row gap-4 pt-4"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.6 }}
+              transition={{ duration: 0.4, delay: 0.3 }}
             >
               <a 
                 href="#kontakt" 
@@ -76,7 +77,7 @@ export function Hero() {
               className="grid grid-cols-3 gap-6 pt-8 border-t border-[#D4AF37]/20"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.8 }}
+              transition={{ duration: 0.4, delay: 0.4 }}
             >
               <div>
                 <div className="text-3xl md:text-4xl text-[#D4AF37] mb-1">7+</div>
@@ -98,7 +99,7 @@ export function Hero() {
             className="relative lg:h-full flex items-center justify-center"
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+            transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
           >
             {/* Dekoracyjne tło */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gradient-to-br from-[#D4AF37]/20 to-[#F4C542]/10 rounded-full blur-3xl" aria-hidden="true"></div>
@@ -112,14 +113,17 @@ export function Hero() {
                   src={image_78fb3ecf73bcfd03b947717ffabfcee1262372c0}
                   alt="Julia Więckowska - kosmetolog pielęgniarka, zabiegi osoczem bogatopłytkowym PRP PRF Białystok, wampirzy lifting, fibryna pod oczy"
                   className="w-full h-full object-cover aspect-[3/4]"
+                  fetchpriority="high"
+                  decoding="async"
                 />
                 
                 {/* Gradient overlay */}
                 <ImageWithFallback 
-                  src={overlayImage}
+                  src={image_1bf0cc7df760e585fd0751e70b044ccd12fc071e}
                   alt=""
                   className="absolute inset-0 w-full h-full object-cover"
                   aria-hidden="true"
+                  decoding="async"
                 />
               </div>
               

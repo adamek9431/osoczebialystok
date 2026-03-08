@@ -7,6 +7,7 @@ import { AboutMe } from '../components/AboutMe';
 import { Pricing } from '../components/Pricing';
 import { Contact } from '../components/Contact';
 import image_25909a0558481bbf84b9fdcc4c4b411887b1789a from 'figma:asset/25909a0558481bbf84b9fdcc4c4b411887b1789a.png';
+import heroImage from 'figma:asset/78fb3ecf73bcfd03b947717ffabfcee1262372c0.png';
 
 // SEO Meta Configuration
 const SEO_CONFIG = {
@@ -74,6 +75,17 @@ function setupSEOMetaTags(config: typeof SEO_CONFIG) {
     document.head.appendChild(favicon);
   }
   favicon.setAttribute('href', config.image);
+
+  // PERFORMANCE OPTIMIZATION: Preload hero image for faster LCP
+  let preloadLink = document.querySelector('link[rel="preload"][as="image"]') as HTMLLinkElement;
+  if (!preloadLink) {
+    preloadLink = document.createElement('link');
+    preloadLink.setAttribute('rel', 'preload');
+    preloadLink.setAttribute('as', 'image');
+    preloadLink.setAttribute('fetchpriority', 'high');
+    document.head.appendChild(preloadLink);
+  }
+  preloadLink.setAttribute('href', heroImage);
 }
 
 // Enhanced JSON-LD Schema with all treatments
@@ -243,6 +255,15 @@ export function HomePage() {
 
     // Setup JSON-LD Schema
     setupJSONLD(SEO_CONFIG);
+
+    // DNS Prefetch for external resources
+    const dnsPrefetch = document.querySelector('link[rel="dns-prefetch"]');
+    if (!dnsPrefetch) {
+      const link = document.createElement('link');
+      link.setAttribute('rel', 'dns-prefetch');
+      link.setAttribute('href', '//static.cloudflareinsights.com');
+      document.head.appendChild(link);
+    }
 
     // Cloudflare Web Analytics
     const cfAnalytics = document.querySelector('script[data-cf-beacon]');
