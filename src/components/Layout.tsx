@@ -51,6 +51,9 @@ export function Layout({ children }: LayoutProps) {
   const location = useLocation();
 
   useEffect(() => {
+    // Set language attribute
+    document.documentElement.lang = 'pl';
+    
     // Force immediate scroll to top on route change
     window.scrollTo(0, 0);
     document.documentElement.scrollTop = 0;
