@@ -5,8 +5,7 @@ import { motion } from 'motion/react';
 import { Breadcrumbs } from '../components/Breadcrumbs';
 import { RelatedTreatments } from '../components/RelatedTreatments';
 import { FAQSection, FAQItem } from '../components/FAQSection';
-import { setupSEOMetaTags, setupOGImage, SEO_CONFIGS } from '../utils/seo-config';
-import image_25909a0558481bbf84b9fdcc4c4b411887b1789a from 'figma:asset/25909a0558481bbf84b9fdcc4c4b411887b1789a.png';
+import { setupSEOMetaTags, setupOGImage, setupJSONLD, SEO_CONFIGS } from '../utils/seo-config';
 
 export function PRPPage() {
   useEffect(() => {
@@ -14,23 +13,15 @@ export function PRPPage() {
     setupSEOMetaTags(SEO_CONFIGS.prp);
     setupOGImage(image_25909a0558481bbf84b9fdcc4c4b411887b1789a);
 
-    // JSON-LD Schema for PRP Service
-    const existingSchema = document.querySelector('script[type="application/ld+json"]');
-    if (existingSchema) existingSchema.remove();
-
-    const schema = {
+    // JSON-LD Schema for PRP Service (Beauty focused)
+    const schemas = [{
       "@context": "https://schema.org",
-      "@type": "MedicalProcedure",
+      "@type": "Service",
       "name": "Zabieg Osoczem Bogatopłytkowym PRP",
       "alternateName": "Wampirzy Lifting",
-      "description": "Zabieg osoczem bogatopłytkowym PRP - naturalne odmładzanie skóry bez skalpela. Wykorzystuje własne osocze pacjenta do regeneracji i odmładzania skóry.",
-      "procedureType": "Terapeutyczny",
-      "bodyLocation": "Twarz, szyja, dekolt",
-      "preparation": "Konsultacja przed zabiegiem, unikanie aspiryny 7 dni przed zabiegiem",
-      "followup": "Kontrola po 2 tygodniach",
-      "howPerformed": "Pobranie krwi, wirowanie, izolacja osocza bogatego w płytki krwi, iniekcje w wybrane partie twarzy",
-      "availability": {
-        "@type": "MedicalBusiness",
+      "description": "Naturalne odmładzanie skóry z wykorzystaniem osocza bogatopłytkowego. Profesjonalny zabieg regeneracyjny w Białymstoku.",
+      "provider": {
+        "@type": "BeautySalon",
         "name": "Osocze Białystok - Julia Więckowska",
         "address": {
           "@type": "PostalAddress",
@@ -38,13 +29,13 @@ export function PRPPage() {
           "addressCountry": "PL"
         },
         "telephone": "+48723574156"
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Białystok"
       }
-    };
-
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.text = JSON.stringify(schema);
-    document.head.appendChild(script);
+    }];
+    setupJSONLD(schemas);
   }, []);
 
   const benefits = [

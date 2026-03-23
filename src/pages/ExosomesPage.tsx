@@ -6,134 +6,45 @@ import { Breadcrumbs } from '../components/Breadcrumbs';
 import { RelatedTreatments } from '../components/RelatedTreatments';
 import { FAQSection, FAQItem } from '../components/FAQSection';
 
+import { useEffect } from 'react';
+import { ArrowLeft, CheckCircle2, Sparkles, AlertTriangle } from 'lucide-react';
+import { Link } from 'react-router';
+import { motion } from 'motion/react';
+import { Breadcrumbs } from '../components/Breadcrumbs';
+import { RelatedTreatments } from '../components/RelatedTreatments';
+import { FAQSection, FAQItem } from '../components/FAQSection';
+import { setupSEOMetaTags, setupOGImage, setupJSONLD, SEO_CONFIGS } from '../utils/seo-config';
+import image_25909a0558481bbf84b9fdcc4c4b411887b1789a from 'figma:asset/25909a0558481bbf84b9fdcc4c4b411887b1789a.png';
+
 export function ExosomesPage() {
   useEffect(() => {
-    document.title = 'Autologiczne Egzosomy Białystok | Zabieg Egzosomami - Julia Więckowska';
-    
-    const metaDescription = document.querySelector('meta[name="description"]') || document.createElement('meta');
-    metaDescription.setAttribute('name', 'description');
-    metaDescription.setAttribute('content', 'Zabieg autologicznymi egzosomami w Białymstoku. Nowoczesna technologia regeneracji skóry na poziomie molekularnym. Naturalne odmładzanie i regeneracja.');
-    if (!document.querySelector('meta[name="description"]')) {
-      document.head.appendChild(metaDescription);
-    }
+    // Setup SEO
+    setupSEOMetaTags(SEO_CONFIGS.exosomes);
+    setupOGImage(image_25909a0558481bbf84b9fdcc4c4b411887b1789a);
 
-    const metaKeywords = document.querySelector('meta[name="keywords"]') || document.createElement('meta');
-    metaKeywords.setAttribute('name', 'keywords');
-    metaKeywords.setAttribute('content', 'egzosomy białystok, autologiczne egzosomy, zabieg egzosomami białystok, regeneracja skóry białystok, odmładzanie białystok, terapia egzosomowa');
-    if (!document.querySelector('meta[name="keywords"]')) {
-      document.head.appendChild(metaKeywords);
-    }
-
-    // Canonical URL
-    const canonical = document.querySelector('link[rel="canonical"]') || document.createElement('link');
-    canonical.setAttribute('rel', 'canonical');
-    canonical.setAttribute('href', 'https://osoczebialystok.pl/autologiczne-egzosomy-bialystok');
-    if (!document.querySelector('link[rel="canonical"]')) {
-      document.head.appendChild(canonical);
-    }
-
-    // Open Graph Tags
-    const ogType = document.querySelector('meta[property="og:type"]') || document.createElement('meta');
-    ogType.setAttribute('property', 'og:type');
-    ogType.setAttribute('content', 'website');
-    if (!document.querySelector('meta[property="og:type"]')) {
-      document.head.appendChild(ogType);
-    }
-
-    const ogUrl = document.querySelector('meta[property="og:url"]') || document.createElement('meta');
-    ogUrl.setAttribute('property', 'og:url');
-    ogUrl.setAttribute('content', 'https://osoczebialystok.pl/autologiczne-egzosomy-bialystok');
-    if (!document.querySelector('meta[property="og:url"]')) {
-      document.head.appendChild(ogUrl);
-    }
-
-    const ogTitle = document.querySelector('meta[property="og:title"]') || document.createElement('meta');
-    ogTitle.setAttribute('property', 'og:title');
-    ogTitle.setAttribute('content', 'Zabieg Autologicznymi Egzosomami Białystok - Julia Więckowska');
-    if (!document.querySelector('meta[property="og:title"]')) {
-      document.head.appendChild(ogTitle);
-    }
-
-    const ogDescription = document.querySelector('meta[property="og:description"]') || document.createElement('meta');
-    ogDescription.setAttribute('property', 'og:description');
-    ogDescription.setAttribute('content', 'Zabieg autologicznymi egzosomami w Białymstoku. Nowoczesna technologia regeneracji skóry na poziomie molekularnym.');
-    if (!document.querySelector('meta[property="og:description"]')) {
-      document.head.appendChild(ogDescription);
-    }
-
-    const ogLocale = document.querySelector('meta[property="og:locale"]') || document.createElement('meta');
-    ogLocale.setAttribute('property', 'og:locale');
-    ogLocale.setAttribute('content', 'pl_PL');
-    if (!document.querySelector('meta[property="og:locale"]')) {
-      document.head.appendChild(ogLocale);
-    }
-
-    const ogSiteName = document.querySelector('meta[property="og:site_name"]') || document.createElement('meta');
-    ogSiteName.setAttribute('property', 'og:site_name');
-    ogSiteName.setAttribute('content', 'Osocze Białystok - Julia Więckowska');
-    if (!document.querySelector('meta[property="og:site_name"]')) {
-      document.head.appendChild(ogSiteName);
-    }
-
-    // Twitter Card Tags
-    const twitterCard = document.querySelector('meta[name="twitter:card"]') || document.createElement('meta');
-    twitterCard.setAttribute('name', 'twitter:card');
-    twitterCard.setAttribute('content', 'summary_large_image');
-    if (!document.querySelector('meta[name="twitter:card"]')) {
-      document.head.appendChild(twitterCard);
-    }
-
-    const twitterTitle = document.querySelector('meta[name="twitter:title"]') || document.createElement('meta');
-    twitterTitle.setAttribute('name', 'twitter:title');
-    twitterTitle.setAttribute('content', 'Zabieg Autologicznymi Egzosomami Białystok');
-    if (!document.querySelector('meta[name="twitter:title"]')) {
-      document.head.appendChild(twitterTitle);
-    }
-
-    const twitterDescription = document.querySelector('meta[name="twitter:description"]') || document.createElement('meta');
-    twitterDescription.setAttribute('name', 'twitter:description');
-    twitterDescription.setAttribute('content', 'Nowoczesna regeneracja skóry na poziomie molekularnym zabiegiem egzosomami w Białymstoku.');
-    if (!document.querySelector('meta[name="twitter:description"]')) {
-      document.head.appendChild(twitterDescription);
-    }
-
-    // Meta Robots
-    const metaRobots = document.querySelector('meta[name="robots"]') || document.createElement('meta');
-    metaRobots.setAttribute('name', 'robots');
-    metaRobots.setAttribute('content', 'index, follow, max-image-preview:large');
-    if (!document.querySelector('meta[name="robots"]')) {
-      document.head.appendChild(metaRobots);
-    }
-
-    // JSON-LD MedicalProcedure Schema
-    const existingSchema = document.querySelector('script[type="application/ld+json"][data-page="exosomes"]');
-    if (!existingSchema) {
-      const schema = {
-        "@context": "https://schema.org",
-        "@type": "MedicalProcedure",
-        "name": "Zabieg Autologicznymi Egzosomami Białystok",
-        "alternateName": "Exosome Therapy",
-        "description": "Autologiczne egzosomy to nowoczesna technologia wykorzystująca naturalne nanocząsteczki pochodzące z Twojej własnej krwi, które przekazują sygnały regeneracyjne między komórkami.",
-        "procedureType": "Therapeutic",
-        "bodyLocation": "Face",
-        "preparation": "Konsultacja i ocena stanu skóry",
-        "followup": "Zalecenia pielęgnacyjne po zabiegu",
-        "howPerformed": "Pobranie krwi, izolacja egzosomów, aplikacja preparatu",
-        "offers": {
-          "@type": "Offer",
-          "price": "2000",
-          "priceCurrency": "PLN",
-          "url": "https://osoczebialystok.pl/autologiczne-egzosomy-bialystok",
-          "availability": "https://schema.org/InStock"
-        }
-      };
-
-      const script = document.createElement('script');
-      script.type = 'application/ld+json';
-      script.setAttribute('data-page', 'exosomes');
-      script.text = JSON.stringify(schema);
-      document.head.appendChild(script);
-    }
+    // JSON-LD Schema for Exosomes Service (Beauty focused)
+    const schemas = [{
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Autologiczne Egzosomy Białystok",
+      "alternateName": "Exosome Therapy",
+      "description": "Nowoczesna technologia wykorzystująca naturalne nanocząsteczki pochodzące z Twojej własnej krwi. Regeneracja na poziomie molekularnym.",
+      "provider": {
+        "@type": "BeautySalon",
+        "name": "Osocze Białystok - Julia Więckowska",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Białystok",
+          "addressCountry": "PL"
+        },
+        "telephone": "+48723574156"
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Białystok"
+      }
+    }];
+    setupJSONLD(schemas);
   }, []);
 
   const benefits = [

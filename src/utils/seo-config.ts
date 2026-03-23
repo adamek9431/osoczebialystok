@@ -1,4 +1,5 @@
 // SEO Configuration for all pages
+import heroImage from 'figma:asset/78fb3ecf73bcfd03b947717ffabfcee1262372c0.png';
 
 export interface SEOConfig {
   title: string;
@@ -14,10 +15,10 @@ export const SEO_CONFIGS: Record<string, SEOConfig> = {
   home: {
     title: 'Osocze Bogatopłytkowe Białystok | PRP, PRF, Full Face Natural® - Julia Więckowska',
     description: 'Naturalne zabiegi z wykorzystaniem fibryny i osocza bogatopłytkowego w Białymstoku. PRP, PRF, Full Face Natural® - skuteczne odmładzanie i regeneracja. Umów wizytę dziś!',
-    keywords: 'osocze bogatopłytkowe Białystok, ostrzykiwanie osoczem Białystok, PRP Białystok zabieg, wampirzy lifting Białystok, fibryna bogatopłytkowa Białystok, fibryna pod oczy Białystok, zabiegi anti-aging Białystok, odmładzanie osoczem Białystok, regeneracja skóry PRP Białystok, medycyna estetyczna osocze Białystok, Full Face zabieg, mezoterapia skóry głowy, PRF Białystok, zabiegi autologiczne Białystok',
+    keywords: 'osocze bogatopłytkowe Białystok, ostrzykiwanie osoczem Białystok, PRP Białystok zabieg, wampirzy lifting Białystok, fibryna bogatopłytkowa Białystok, fibryna pod oczy Białystok, zabiegi anti-aging Białystok, odmładzanie osoczem Białystok, regeneracja skóry PRP Białystok, profesjonalna kosmetyka Białystok, Full Face zabieg, mezoterapia skóry głowy, PRF Białystok, zabiegi autologiczne Białystok',
     url: 'https://osoczebialystok.pl/',
     ogTitle: 'Osocze Bogatopłytkowe Białystok | PRP, PRF - Julia Więckowska',
-    ogDescription: 'Naturalne zabiegi z wykorzystaniem fibryny i osocza bogatopłytkowego w Białymstoku. PRP, PRF, Full Face Natural® - profesjonalna kosmetologia.',
+    ogDescription: 'Naturalne zabiegi z wykorzystaniem fibryny i osocza bogatopłytkowego w Białymstoku. PRP, PRF, Full Face Natural® - profesjonalna kosmetyka.',
     type: 'website'
   },
   prp: {
@@ -26,7 +27,7 @@ export const SEO_CONFIGS: Record<string, SEOConfig> = {
     keywords: 'osocze bogatopłytkowe PRP Białystok, wampirzy lifting Białystok, ostrzykiwanie osoczem Białystok, zabieg PRP Białystok, odmładzanie osoczem, regeneracja skóry PRP, PRP twarz Białystok, osocze na zmarszczki, zabiegi PRP cena',
     url: 'https://osoczebialystok.pl/osocze-bogatoplytkowe-prp-bialystok',
     ogTitle: 'Osocze Bogatopłytkowe PRP Białystok - Wampirzy Lifting',
-    ogDescription: 'Zabieg osoczem bogatopłytkowym PRP - naturalne odmładzanie skóry bez skalpela. Profesjonalne zabiegi w Białymstoku.',
+    ogDescription: 'Zabieg osoczem bogatopłytkowym PRP - naturalne odmładzanie skóry. Profesjonalne zabiegi w Białymstoku.',
     type: 'article'
   },
   prf: {
@@ -117,11 +118,22 @@ export function setupSEOMetaTags(config: SEOConfig) {
     document.head.appendChild(canonical);
   }
   canonical.setAttribute('href', config.url);
+
+  // PERFORMANCE OPTIMIZATION: Preload hero image for faster LCP
+  let preloadLink = document.querySelector('link[rel="preload"][as="image"]') as HTMLLinkElement;
+  if (!preloadLink) {
+    preloadLink = document.createElement('link');
+    preloadLink.setAttribute('rel', 'preload');
+    preloadLink.setAttribute('as', 'image');
+    preloadLink.setAttribute('fetchpriority', 'high');
+    document.head.appendChild(preloadLink);
+  }
+  preloadLink.setAttribute('href', heroImage);
 }
 
 // Setup Open Graph images
 export function setupOGImage(imageUrl: string) {
-  const fullImageUrl = `https://osoczebialystok.pl${imageUrl}`;
+  const fullImageUrl = imageUrl.startsWith('http') ? imageUrl : `https://osoczebialystok.pl${imageUrl}`;
   
   const ogImageTags = [
     { property: 'og:image', content: fullImageUrl },
@@ -141,5 +153,20 @@ export function setupOGImage(imageUrl: string) {
       document.head.appendChild(meta);
     }
     meta.setAttribute('content', content);
+  });
+}
+
+// Setup JSON-LD Schema helper
+export function setupJSONLD(schemas: any[]) {
+  // Remove existing JSON-LD scripts
+  const existingSchemas = document.querySelectorAll('script[type="application/ld+json"]');
+  existingSchemas.forEach(schema => schema.remove());
+
+  // Add new scripts
+  schemas.forEach(schema => {
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.text = JSON.stringify(schema);
+    document.head.appendChild(script);
   });
 }

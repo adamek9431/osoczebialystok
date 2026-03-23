@@ -6,134 +6,45 @@ import { Breadcrumbs } from '../components/Breadcrumbs';
 import { RelatedTreatments } from '../components/RelatedTreatments';
 import { FAQSection, FAQItem } from '../components/FAQSection';
 
+import { useEffect } from 'react';
+import { ArrowLeft, CheckCircle2, Sparkles, Crown, AlertTriangle } from 'lucide-react';
+import { Link } from 'react-router';
+import { motion } from 'motion/react';
+import { Breadcrumbs } from '../components/Breadcrumbs';
+import { RelatedTreatments } from '../components/RelatedTreatments';
+import { FAQSection, FAQItem } from '../components/FAQSection';
+import { setupSEOMetaTags, setupOGImage, setupJSONLD, SEO_CONFIGS } from '../utils/seo-config';
+import image_25909a0558481bbf84b9fdcc4c4b411887b1789a from 'figma:asset/25909a0558481bbf84b9fdcc4c4b411887b1789a.png';
+
 export function FullFaceNaturalPage() {
   useEffect(() => {
-    document.title = 'Full Face Natural® Białystok | Naturalny Wypełniacz Autologiczny - Julia Więckowska';
-    
-    const metaDescription = document.querySelector('meta[name="description"]') || document.createElement('meta');
-    metaDescription.setAttribute('name', 'description');
-    metaDescription.setAttribute('content', 'Full Face Natural® w Białymstoku - opatentowany zabieg wolumetrii twarzy z wykorzystaniem własnego osocza. Naturalny wypełniacz autologiczny bez kwasu hialuronowego.');
-    if (!document.querySelector('meta[name="description"]')) {
-      document.head.appendChild(metaDescription);
-    }
+    // Setup SEO
+    setupSEOMetaTags(SEO_CONFIGS.fullFace);
+    setupOGImage(image_25909a0558481bbf84b9fdcc4c4b411887b1789a);
 
-    const metaKeywords = document.querySelector('meta[name="keywords"]') || document.createElement('meta');
-    metaKeywords.setAttribute('name', 'keywords');
-    metaKeywords.setAttribute('content', 'full face natural białystok, naturalny wypełniacz białystok, wolumetria twarzy białystok, osocze wypełniacz białystok, autologiczny wypełniacz białystok');
-    if (!document.querySelector('meta[name="keywords"]')) {
-      document.head.appendChild(metaKeywords);
-    }
-
-    // Canonical URL
-    const canonical = document.querySelector('link[rel="canonical"]') || document.createElement('link');
-    canonical.setAttribute('rel', 'canonical');
-    canonical.setAttribute('href', 'https://osoczebialystok.pl/full-face-natural-bialystok');
-    if (!document.querySelector('link[rel="canonical"]')) {
-      document.head.appendChild(canonical);
-    }
-
-    // Open Graph Tags
-    const ogType = document.querySelector('meta[property="og:type"]') || document.createElement('meta');
-    ogType.setAttribute('property', 'og:type');
-    ogType.setAttribute('content', 'website');
-    if (!document.querySelector('meta[property="og:type"]')) {
-      document.head.appendChild(ogType);
-    }
-
-    const ogUrl = document.querySelector('meta[property="og:url"]') || document.createElement('meta');
-    ogUrl.setAttribute('property', 'og:url');
-    ogUrl.setAttribute('content', 'https://osoczebialystok.pl/full-face-natural-bialystok');
-    if (!document.querySelector('meta[property="og:url"]')) {
-      document.head.appendChild(ogUrl);
-    }
-
-    const ogTitle = document.querySelector('meta[property="og:title"]') || document.createElement('meta');
-    ogTitle.setAttribute('property', 'og:title');
-    ogTitle.setAttribute('content', 'Full Face Natural® Białystok - Naturalny Wypełniacz - Julia Więckowska');
-    if (!document.querySelector('meta[property="og:title"]')) {
-      document.head.appendChild(ogTitle);
-    }
-
-    const ogDescription = document.querySelector('meta[property="og:description"]') || document.createElement('meta');
-    ogDescription.setAttribute('property', 'og:description');
-    ogDescription.setAttribute('content', 'Opatentowany zabieg wolumetrii twarzy z wykorzystaniem własnego osocza - naturalny wypełniacz bez kwasu hialuronowego.');
-    if (!document.querySelector('meta[property="og:description"]')) {
-      document.head.appendChild(ogDescription);
-    }
-
-    const ogLocale = document.querySelector('meta[property="og:locale"]') || document.createElement('meta');
-    ogLocale.setAttribute('property', 'og:locale');
-    ogLocale.setAttribute('content', 'pl_PL');
-    if (!document.querySelector('meta[property="og:locale"]')) {
-      document.head.appendChild(ogLocale);
-    }
-
-    const ogSiteName = document.querySelector('meta[property="og:site_name"]') || document.createElement('meta');
-    ogSiteName.setAttribute('property', 'og:site_name');
-    ogSiteName.setAttribute('content', 'Osocze Białystok - Julia Więckowska');
-    if (!document.querySelector('meta[property="og:site_name"]')) {
-      document.head.appendChild(ogSiteName);
-    }
-
-    // Twitter Card Tags
-    const twitterCard = document.querySelector('meta[name="twitter:card"]') || document.createElement('meta');
-    twitterCard.setAttribute('name', 'twitter:card');
-    twitterCard.setAttribute('content', 'summary_large_image');
-    if (!document.querySelector('meta[name="twitter:card"]')) {
-      document.head.appendChild(twitterCard);
-    }
-
-    const twitterTitle = document.querySelector('meta[name="twitter:title"]') || document.createElement('meta');
-    twitterTitle.setAttribute('name', 'twitter:title');
-    twitterTitle.setAttribute('content', 'Full Face Natural® Białystok - Naturalny Wypełniacz');
-    if (!document.querySelector('meta[name="twitter:title"]')) {
-      document.head.appendChild(twitterTitle);
-    }
-
-    const twitterDescription = document.querySelector('meta[name="twitter:description"]') || document.createElement('meta');
-    twitterDescription.setAttribute('name', 'twitter:description');
-    twitterDescription.setAttribute('content', 'Wolumetria twarzy własnym osoczem - naturalny wypełniacz autologiczny w Białymstoku.');
-    if (!document.querySelector('meta[name="twitter:description"]')) {
-      document.head.appendChild(twitterDescription);
-    }
-
-    // Meta Robots
-    const metaRobots = document.querySelector('meta[name="robots"]') || document.createElement('meta');
-    metaRobots.setAttribute('name', 'robots');
-    metaRobots.setAttribute('content', 'index, follow, max-image-preview:large');
-    if (!document.querySelector('meta[name="robots"]')) {
-      document.head.appendChild(metaRobots);
-    }
-
-    // JSON-LD MedicalProcedure Schema
-    const existingSchema = document.querySelector('script[type="application/ld+json"][data-page="fullface"]');
-    if (!existingSchema) {
-      const schema = {
-        "@context": "https://schema.org",
-        "@type": "MedicalProcedure",
-        "name": "Full Face Natural® Białystok",
-        "alternateName": "Naturalny Wypełniacz Autologiczny",
-        "description": "Opatentowany zabieg wolumetrii twarzy z wykorzystaniem własnego osocza bogatopłytkowego. Naturalny wypełniacz bez kwasu hialuronowego.",
-        "procedureType": "Therapeutic",
-        "bodyLocation": "Face",
-        "preparation": "Konsultacja i ocena objętości twarzy",
-        "followup": "Zalecenia pielęgnacyjne po zabiegu",
-        "howPerformed": "Pobranie krwi, przygotowanie autologicznego wypełniacza, aplikacja w wybrane obszary twarzy",
-        "offers": {
-          "@type": "Offer",
-          "price": "1500",
-          "priceCurrency": "PLN",
-          "url": "https://osoczebialystok.pl/full-face-natural-bialystok",
-          "availability": "https://schema.org/InStock"
-        }
-      };
-
-      const script = document.createElement('script');
-      script.type = 'application/ld+json';
-      script.setAttribute('data-page', 'fullface');
-      script.text = JSON.stringify(schema);
-      document.head.appendChild(script);
-    }
+    // JSON-LD Schema for Full Face Natural (Beauty focused)
+    const schemas = [{
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Full Face Natural® Białystok",
+      "alternateName": "Naturalny Wypełniacz Autologiczny",
+      "description": "Opatentowany zabieg wolumetrii twarzy z wykorzystaniem własnego osocza bogatopłytkowego. Naturalny wypełniacz bez kwasu hialuronowego.",
+      "provider": {
+        "@type": "BeautySalon",
+        "name": "Osocze Białystok - Julia Więckowska",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Białystok",
+          "addressCountry": "PL"
+        },
+        "telephone": "+48723574156"
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Białystok"
+      }
+    }];
+    setupJSONLD(schemas);
   }, []);
 
   const benefits = [
