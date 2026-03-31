@@ -6,7 +6,8 @@ import { TreatmentInfo } from '../components/TreatmentInfo';
 import { AboutMe } from '../components/AboutMe';
 import { Pricing } from '../components/Pricing';
 import { Contact } from '../components/Contact';
-import { setupSEOMetaTags, setupJSONLD, SEO_CONFIGS } from '../utils/seo-config';
+import { FAQSection, FAQItem } from '../components/FAQSection';
+import { setupSEOMetaTags, setupOGImage, setupJSONLD, SEO_CONFIGS } from '../utils/seo-config';
 import image_25909a0558481bbf84b9fdcc4c4b411887b1789a from 'figma:asset/25909a0558481bbf84b9fdcc4c4b411887b1789a.png';
 
 export function HomePage() {
@@ -21,6 +22,7 @@ export function HomePage() {
 
     // Setup SEO Meta Tags
     setupSEOMetaTags(SEO_CONFIGS.home);
+    setupOGImage(image_25909a0558481bbf84b9fdcc4c4b411887b1789a);
 
     // Optimized JSON-LD for Beauty Services
     const logoUrl = `https://osoczebialystok.pl${image_25909a0558481bbf84b9fdcc4c4b411887b1789a}`;
@@ -123,6 +125,33 @@ export function HomePage() {
     }
   }, []);
 
+  const homePageFaqs: FAQItem[] = [
+    {
+      question: "Gdzie zrobić zabieg osoczem bogatopłytkowym w Białymstoku?",
+      answer: "Zabiegi osoczem bogatopłytkowym w Białymstoku wykonuję w gabinecie przy ul. Wyszyńskiego 2/1, lok. 301. Oferuję profesjonalne zabiegi PRP, PRF i Full Face Natural® z bezpłatną konsultacją. Umów wizytę telefonicznie pod nr +48 723 574 156 lub przez Booksy."
+    },
+    {
+      question: "Ile kosztuje zabieg odmładzania twarzy osoczem w Białymstoku?",
+      answer: "Ceny zabiegów odmładzania twarzy osoczem w Białymstoku zaczynają się od 400 zł za pojedynczą partię (np. okolice oczu). Zabieg PRP na twarz kosztuje 600 zł, a kompleksowy Full Face Natural® — 1500 zł. Przy pakiecie 3-4 zabiegów oferuję rabaty do 17%."
+    },
+    {
+      question: "Czym jest osocze bogatopłytkowe i jak działa na skórę?",
+      answer: "Osocze bogatopłytkowe (PRP) to koncentrat płytek krwi pozyskany z Twojej własnej krwi, bogaty w czynniki wzrostu. Po aplikacji w skórę stymuluje produkcję kolagenu i elastyny, co prowadzi do naturalnego odmłodzenia — redukcji zmarszczek, poprawy napięcia i rozświetlenia skóry."
+    },
+    {
+      question: "Jakie zabiegi odmładzania twarzy oferujesz w Białymstoku?",
+      answer: "W moim gabinecie w Białymstoku oferuję: osocze bogatopłytkowe PRP (wampirzy lifting), fibrynę bogatopłytkową PRF, Full Face Natural® (naturalny wypełniacz autologiczny), autologiczne egzosomy oraz mezoterapię mikroigłową. Wszystkie metody bazują na naturalnych procesach regeneracyjnych."
+    },
+    {
+      question: "Czy zabiegi osoczem bogatopłytkowym są bezpieczne?",
+      answer: "Tak, zabiegi osoczem są w pełni bezpieczne — wykorzystują wyłącznie Twoją własną krew, dzięki czemu nie ma ryzyka alergii ani odrzucenia. Jako specjalistka z wykształceniem pielęgniarskim dbam o najwyższe standardy sterylności i bezpieczeństwa."
+    },
+    {
+      question: "Jak długo utrzymują się efekty zabiegu PRP na twarz?",
+      answer: "Efekty zabiegu PRP na twarz utrzymują się 12-18 miesięcy po zakończeniu serii 3-4 zabiegów. Pierwsze rezultaty (rozświetlenie, poprawa kolorytu) widoczne są już po 2-3 tygodniach, a pełne efekty odmładzające rozwijają się przez 4-8 tygodni."
+    }
+  ];
+
   return (
     <div itemScope itemType="https://schema.org/BeautySalon">
       <Hero />
@@ -131,6 +160,7 @@ export function HomePage() {
       <AboutMe />
       <SafetyBanner />
       <Pricing />
+      <FAQSection faqs={homePageFaqs} treatmentName="homepage" />
       <Contact />
     </div>
   );

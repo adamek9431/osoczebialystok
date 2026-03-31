@@ -38,9 +38,9 @@ export function Hero() {
               })}
               itemProp="name"
             >
-              Regeneracja<br />
-              i <span className="text-[#D4AF37]">odnowa</span><br />
-              skóry
+              Osocze<br />
+              bogatopłytkowe<br />
+              <span className="text-[#D4AF37]">Białystok</span>
             </motion.h1>
             
             <motion.p 
@@ -52,17 +52,9 @@ export function Hero() {
               })}
               itemProp="description"
             >
-              Naturalne zabiegi z wykorzystaniem fibryny i osocza bogatopłytkowego. 
-              Odkryj moc regeneracji Twojego organizmu.
+              Profesjonalne zabiegi odmładzania twarzy z wykorzystaniem fibryny i osocza bogatopłytkowego w Białymstoku. 
+              PRP, PRF i Full Face Natural® — odkryj moc naturalnej regeneracji.
             </motion.p>
-            
-            {/* Hidden SEO keywords */}
-            <div className="sr-only" aria-hidden="true">
-              Osocze bogatopłytkowe Białystok, ostrzykiwanie osoczem Białystok, PRP Białystok zabieg, 
-              wampirzy lifting Białystok, fibryna bogatopłytkowa Białystok, fibryna pod oczy Białystok, 
-              zabiegi anti-aging Białystok, odmładzanie osoczem Białystok, regeneracja skóry PRP Białystok, 
-              medycyna estetyczna osocze Białystok, Full Face zabieg, mezoterapia skóry głowy, PRF Białystok
-            </div>
             
             <motion.div 
               className="flex flex-col sm:flex-row gap-4 pt-4"
@@ -135,10 +127,11 @@ export function Hero() {
                   <source media="(max-width: 768px)" srcSet={image_mobile} />
                   <img 
                     src={image_78fb3ecf73bcfd03b947717ffabfcee1262372c0}
-                    alt="Julia Więckowska - kosmetolog pielęgniarka, zabiegi osoczem bogatopłytkowym PRP PRF Białystok, wampirzy lifting, fibryna pod oczy"
+                    alt="Zabieg odmładzania twarzy osoczem bogatopłytkowym Białystok - Julia Więckowska"
                     className="w-full h-auto object-cover"
                     style={{ aspectRatio: '3/4' }}
                     loading="eager"
+                    fetchPriority="high"
                     decoding="async"
                   />
                 </picture>

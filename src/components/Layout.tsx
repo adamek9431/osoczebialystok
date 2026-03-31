@@ -12,7 +12,7 @@ interface LayoutProps {
 const Footer = memo(() => (
   <footer className="bg-black text-[#E8DCC4] py-12 border-t border-[#D4AF37]/20" itemScope itemType="https://schema.org/WPFooter">
     <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-      <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+      <div className="flex flex-col md:flex-row justify-between items-start gap-8">
         <div className="text-center md:text-left">
           <div className="flex items-center gap-2 justify-center md:justify-start mb-2">
             <div className="w-12 h-12 bg-gradient-to-br from-[#D4AF37] to-[#F4C542] rounded-full overflow-hidden">
@@ -25,19 +25,30 @@ const Footer = memo(() => (
             <span className="text-[#D4AF37] font-[Cinzel]" itemProp="name">Julia Więckowska</span>
           </div>
           <p className="text-sm text-[#E8DCC4]/70" itemProp="description">
-            Profesjonalne zabiegi z fibryną i osoczem Białystok
-          </p>
-          <p className="text-xs text-[#E8DCC4]/50 mt-2">
-            Osocze bogatopłytkowe PRP | Fibryna PRF | Mezoterapia | Full Face Natural® | 
+            Zabiegi odmładzania twarzy osoczem bogatopłytkowym w Białymstoku
           </p>
         </div>
+
+        {/* SEO Internal Links */}
+        <nav className="text-center md:text-left" aria-label="Zabiegi">
+          <h4 className="text-[#D4AF37] text-sm mb-3">Zabiegi</h4>
+          <ul className="space-y-1.5 text-xs text-[#E8DCC4]/60">
+            <li><a href="/osocze-bogatoplytkowe-prp-bialystok" className="hover:text-[#D4AF37] transition-colors">Osocze bogatopłytkowe PRP Białystok</a></li>
+            <li><a href="/fibryna-bogatoplytkowa-prf-bialystok" className="hover:text-[#D4AF37] transition-colors">Fibryna bogatopłytkowa PRF Białystok</a></li>
+            <li><a href="/full-face-natural-bialystok" className="hover:text-[#D4AF37] transition-colors">Full Face Natural® Białystok</a></li>
+            <li><a href="/osocze-na-skore-glowy-bialystok" className="hover:text-[#D4AF37] transition-colors">Osocze na skórę głowy Białystok</a></li>
+            <li><a href="/autologiczne-egzosomy-bialystok" className="hover:text-[#D4AF37] transition-colors">Autologiczne egzosomy Białystok</a></li>
+            <li><a href="/mezoterapia-mikroiglowa-bialystok" className="hover:text-[#D4AF37] transition-colors">Mezoterapia mikroigłowa Białystok</a></li>
+          </ul>
+        </nav>
         
         <div className="text-center md:text-right">
           <p className="text-sm text-[#E8DCC4]/70 mb-1">
             © 2026 Wszystkie prawa zastrzeżone
           </p>
           <p className="text-xs text-[#E8DCC4]/50">
-            Białystok, Województwo Podlaskie
+            ul. Wyszyńskiego 2/1, lok. 301<br />
+            15-888 Białystok, Województwo Podlaskie
           </p>
         </div>
       </div>

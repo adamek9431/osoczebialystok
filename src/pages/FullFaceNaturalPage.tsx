@@ -5,14 +5,6 @@ import { motion } from 'motion/react';
 import { Breadcrumbs } from '../components/Breadcrumbs';
 import { RelatedTreatments } from '../components/RelatedTreatments';
 import { FAQSection, FAQItem } from '../components/FAQSection';
-
-import { useEffect } from 'react';
-import { ArrowLeft, CheckCircle2, Sparkles, Crown, AlertTriangle } from 'lucide-react';
-import { Link } from 'react-router';
-import { motion } from 'motion/react';
-import { Breadcrumbs } from '../components/Breadcrumbs';
-import { RelatedTreatments } from '../components/RelatedTreatments';
-import { FAQSection, FAQItem } from '../components/FAQSection';
 import { setupSEOMetaTags, setupOGImage, setupJSONLD, SEO_CONFIGS } from '../utils/seo-config';
 import image_25909a0558481bbf84b9fdcc4c4b411887b1789a from 'figma:asset/25909a0558481bbf84b9fdcc4c4b411887b1789a.png';
 

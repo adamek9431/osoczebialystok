@@ -13,12 +13,12 @@ export interface SEOConfig {
 
 export const SEO_CONFIGS: Record<string, SEOConfig> = {
   home: {
-    title: 'Osocze Bogatopłytkowe Białystok | PRP, PRF, Full Face Natural® - Julia Więckowska',
-    description: 'Naturalne zabiegi z wykorzystaniem fibryny i osocza bogatopłytkowego w Białymstoku. PRP, PRF, Full Face Natural® - skuteczne odmładzanie i regeneracja. Umów wizytę dziś!',
-    keywords: 'osocze bogatopłytkowe Białystok, ostrzykiwanie osoczem Białystok, PRP Białystok zabieg, wampirzy lifting Białystok, fibryna bogatopłytkowa Białystok, fibryna pod oczy Białystok, zabiegi anti-aging Białystok, odmładzanie osoczem Białystok, regeneracja skóry PRP Białystok, profesjonalna kosmetyka Białystok, Full Face zabieg, mezoterapia skóry głowy, PRF Białystok, zabiegi autologiczne Białystok',
+    title: 'Osocze Białystok | Odmładzanie Twarzy PRP PRF - Julia Więckowska',
+    description: 'Zabiegi osoczem bogatopłytkowym w Białymstoku. Odmładzanie twarzy metodami PRP, PRF i Full Face Natural® — naturalna regeneracja skóry. Umów bezpłatną konsultację!',
+    keywords: 'osocze Białystok, osocze bogatopłytkowe Białystok, Białystok osocze, zabieg odmładzania twarzy Białystok, odmładzanie twarzy Białystok, PRP Białystok, PRF Białystok, ostrzykiwanie osoczem Białystok, wampirzy lifting Białystok, fibryna bogatopłytkowa Białystok, fibryna pod oczy Białystok, zabiegi anti-aging Białystok, odmładzanie osoczem Białystok, regeneracja skóry PRP Białystok, Full Face Natural Białystok, mezoterapia skóry głowy Białystok',
     url: 'https://osoczebialystok.pl/',
-    ogTitle: 'Osocze Bogatopłytkowe Białystok | PRP, PRF - Julia Więckowska',
-    ogDescription: 'Naturalne zabiegi z wykorzystaniem fibryny i osocza bogatopłytkowego w Białymstoku. PRP, PRF, Full Face Natural® - profesjonalna kosmetyka.',
+    ogTitle: 'Osocze Białystok | Odmładzanie Twarzy PRP PRF - Julia Więckowska',
+    ogDescription: 'Zabiegi osoczem bogatopłytkowym w Białymstoku. PRP, PRF, Full Face Natural® — naturalna regeneracja i odmładzanie skóry twarzy.',
     type: 'website'
   },
   prp: {
